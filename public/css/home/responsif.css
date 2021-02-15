@@ -1,0 +1,17 @@
+@media screen and (max-width: 600px) {
+    #footer .input100 {
+        flex-direction: row;
+    }
+
+    .input-feedback {
+        width: 100%;
+    }
+
+    #header h1 img {
+        width: 70vw;
+    }
+
+    form {
+        /* width: 90%; */
+    }
+}

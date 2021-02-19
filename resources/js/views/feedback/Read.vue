@@ -41,7 +41,7 @@ export default {
   data() {
     return {
       feedbacks: [],
-      akun: [],
+      akun: ["createit.hmif@gmail.com", "KWU.hmif.createit"],
     };
   },
 
@@ -67,7 +67,7 @@ export default {
           {
             // title: "Email",
             title: "Input email address",
-            input: "text",
+            input: "email",
             inputLabel: "Your email address",
             inputPlaceholder: "Enter your email address",
           },

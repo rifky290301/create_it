@@ -19,13 +19,22 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item">
-            <a class="nav-link" href="#header">Home</a>
+            <a
+              style="font-family: Poppins-Light"
+              class="nav-link"
+              href="#header"
+              >Home</a
+            >
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#main">Alur Kerja</a>
+            <a style="font-family: Poppins-Light" class="nav-link" href="#main"
+              >Alur Kerja</a
+            >
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#feed">Feedback</a>
+            <a style="font-family: Poppins-Light" class="nav-link" href="#feed"
+              >Feedback</a
+            >
           </li>
           <!-- <li class="nav-item">
             <router-link class="nav-link" :to="{ name: 'project.table' }"

@@ -13,13 +13,6 @@
         dibawah naungan langsung oleh Himpunan Mahasiswa Informatika Universitas
         Jember
       </p>
-      <!-- <div class="row">
-        <div class="d-flex m-auto">
-          <ul class="actions">
-            <a class="button" href=""></a>
-          </ul>
-        </div>
-      </div> -->
       <ul class="actions mt-5">
         <a href="/request" class="button">Request Project</a>
       </ul>
@@ -43,7 +36,9 @@
             />
           </div>
           <div class="content">
-            <h3>Mengisi Form Pengajuan Proyek</h3>
+            <h3>
+              <span class="highligt">1.</span> Mengisi Form Pengajuan Proyek
+            </h3>
             <p>Form pengajuan dapat diisi di halaman ini</p>
           </div>
         </section>
@@ -55,7 +50,7 @@
             />
           </div>
           <div class="content">
-            <h3>Diskusi dengan Klien</h3>
+            <h3><span class="highligt">2.</span>Diskusi dengan Klien</h3>
             <p>
               Client dapat menghubungi admin, lalu mendiskusikan proyek yang
               telah diisikan di form pada tahap pertama
@@ -70,7 +65,7 @@
             />
           </div>
           <div class="content">
-            <h3>Mencari Desainer</h3>
+            <h3><span class="highligt">3.</span>Mencari Desainer</h3>
             <p>
               Admin akan mencarikan desainer yang cocok dengan request proyek
               yang telah diajukan
@@ -82,7 +77,7 @@
             <img :src="'images/home/undrow/undraw_agreement_aajr.svg'" alt="" />
           </div>
           <div class="content">
-            <h3>Persetujuan Perjanjian</h3>
+            <h3><span class="highligt">4.</span>Persetujuan Perjanjian</h3>
             <p>
               Melakukan kesepakatan admin dengan client seperti harga, deadline,
               dll
@@ -97,7 +92,7 @@
             />
           </div>
           <div class="content">
-            <h3>Pengerjaan Proyek</h3>
+            <h3><span class="highligt">5.</span>Pengerjaan Proyek</h3>
             <p>
               Desiner melakukan pengerjaan proyek yang telah diberikan. Dan di
               kontrol oleh admin
@@ -112,7 +107,7 @@
             />
           </div>
           <div class="content">
-            <h3>Selesai</h3>
+            <h3><span class="highligt">6.</span>Selesai</h3>
             <p>
               Proyek selesai dikerjakan dan diserahkan kepada client. Dan
               melakukan pembayaran sesuai dengan kesepakatan
@@ -122,7 +117,9 @@
       </div>
 
       <footer class="d-flex" style="flex-direction: column">
-        <h3 class="m-auto">Tertarik menggunakan jasa kami?</h3>
+        <h3 style="font-family: Poppins-Medium" class="m-auto">
+          Tertarik menggunakan jasa kami?
+        </h3>
         <ul class="actions mt-3">
           <router-link :to="'/request'" class="button"
             >Request Project</router-link
@@ -328,6 +325,7 @@ export default {
   font-size: 1.5em;
   line-height: 1.5em;
   margin: 0 10vw;
+  font-family: "Poppins-Regular";
 }
 
 #header span img {
@@ -363,6 +361,7 @@ header.major:after {
 
 header.major h2 {
   margin: 0;
+  font-family: "Poppins-Medium";
 }
 
 header.major p {
@@ -464,13 +463,15 @@ header.major.last h2 {
 
 .feature .content h3 {
   margin-bottom: 0.5em;
-  font-weight: 900;
+  /* font-weight: 600; */
+  font-family: "Poppins-Medium";
 }
 
 .feature .content :last-child {
   margin: 0;
   line-height: 1.2rem;
   font-size: 1rem;
+  font-family: "Poppins-Light";
 }
 
 .feature.left {
@@ -827,6 +828,22 @@ a {
 
 li {
   list-style: none;
+}
+
+/* higlight */
+.highligt {
+  background-image: linear-gradient(
+    0deg,
+    #3fa9f5 17.5px,
+    #3fa9f5 0,
+    transparent 0,
+    transparent
+  );
+}
+
+.feature .content .highligt {
+  font-family: "Poppins-Bold";
+  font-size: 2rem;
 }
 </style>
 

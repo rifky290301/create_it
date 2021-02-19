@@ -8,6 +8,7 @@
     <title>Create IT</title>
     <link rel="icon" href="images/global/IG LOGO.svg">
     <link rel="stylesheet" href="/css/app.css">
+    <link rel="stylesheet" href="/css/instanseFont.css">
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
 </head>
 <body>

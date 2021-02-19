@@ -82,7 +82,7 @@ export default {
           {
             // title: "Email",
             title: "Input email address",
-            input: "text",
+            input: "email",
             inputLabel: "Your email address",
             inputPlaceholder: "Enter your email address",
           },
@@ -97,8 +97,8 @@ export default {
         .then((result) => {
           if (
             result.value &&
-            result.value[0] == "1" &&
-            result.value[1] == "2"
+            result.value[0] == this.akun[0] &&
+            result.value[1] == this.akun[1]
             // result.value[0] == "1" &&
             // result.value[1] == "2"
           ) {

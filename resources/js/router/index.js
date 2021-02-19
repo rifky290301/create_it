@@ -46,7 +46,7 @@ export default {
       component: Request
     },
     {
-      path: '/table',
+      path: '/project-table',
       name: 'project.table',
       component: TableOfProject
     },

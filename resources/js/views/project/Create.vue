@@ -542,6 +542,7 @@ export default {
   font-size: 48px;
   font-weight: normal;
   text-align: center;
+  font-family: "Poppins-Bold";
 }
 
 @media (max-width: 475px) {
@@ -630,6 +631,7 @@ export default {
   font-size: 22px;
   position: relative;
   z-index: 99;
+  font-family: "Poppins-Regular";
 }
 
 .middle #fancy-inputs input:focus {
@@ -745,6 +747,7 @@ export default {
 
 .middle .teks-label {
   font-size: 1.5rem;
+  font-family: "Poppins-Regular";
 }
 
 /* star */

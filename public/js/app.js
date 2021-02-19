@@ -1960,6 +1960,15 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
 // tidak jadi
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "navbar",
@@ -2054,9 +2063,6 @@ function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
-//
-//
-//
 //
 //
 //
@@ -2645,7 +2651,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
   data: function data() {
     return {
       feedbacks: [],
-      akun: []
+      akun: ["createit.hmif@gmail.com", "KWU.hmif.createit"]
     };
   },
   mounted: function mounted() {
@@ -2696,7 +2702,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 }).queue([{
                   // title: "Email",
                   title: "Input email address",
-                  input: "text",
+                  input: "email",
                   inputLabel: "Your email address",
                   inputPlaceholder: "Enter your email address"
                 }, {
@@ -3520,7 +3526,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 }).queue([{
                   // title: "Email",
                   title: "Input email address",
-                  input: "text",
+                  input: "email",
                   inputLabel: "Your email address",
                   inputPlaceholder: "Enter your email address"
                 }, {
@@ -3530,7 +3536,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                   inputLabel: "Password",
                   inputPlaceholder: "Enter your password"
                 }]).then(function (result) {
-                  if (result.value && result.value[0] == "1" && result.value[1] == "2" // result.value[0] == "1" &&
+                  if (result.value && result.value[0] == _this3.akun[0] && result.value[1] == _this3.akun[1] // result.value[0] == "1" &&
                   // result.value[1] == "2"
                   ) {
                       _this3.getProjects();
@@ -8123,7 +8129,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 exports.push([module.i, "@import url(/css/home/responsif.css);", ""]);
 
 // module
-exports.push([module.i, "\n#header {\r\n  background-attachment: scroll, scroll, fixed;\r\n  background: #3fa9f5;\r\n  /* background-image: url(\"images/top-1600.svg\"), url(\"images/overlay.png\"), url(\"../images/header.jpg\"); */\r\n\r\n  background-image: url(\"/images/home/top-3200.svg\");\r\n  /* background-image: url(\"images/top-1600.svg\"); */\r\n  background-position: bottom center, top left, center center;\r\n  background-repeat: repeat-x, repeat, no-repeat;\r\n  background-size: 3200px 460px, auto, cover;\r\n  color: rgba(255, 255, 255, 0.8);\r\n  padding: 10em 0 20em 0;\r\n  position: relative;\r\n  text-align: center;\n}\n#header:before {\r\n  height: calc(100% - 50px);\r\n  opacity: 0.15;\r\n  top: 0;\n}\n#header:after {\r\n  bottom: 0;\r\n  height: 50px;\n}\n#header a {\r\n  border-bottom-color: rgba(255, 255, 255, 0.35);\r\n  color: rgba(255, 255, 255, 0.8);\n}\n#header a:hover {\r\n  border-bottom-color: transparent;\r\n  color: #3fa9f5;\n}\n#header strong,\r\n#header b {\r\n  color: white;\n}\n#header h1,\r\n#header h2,\r\n#header h3,\r\n#header h4,\r\n#header h5,\r\n#header h6 {\r\n  color: white;\n}\n#header input[type=\"submit\"],\r\n#header input[type=\"reset\"],\r\n#header input[type=\"button\"],\r\n#header .button {\r\n  background: white;\r\n  color: #544d55;\n}\n#header .logo {\r\n  background: #0c2b6c;\r\n  border-radius: 100%;\r\n  color: white;\r\n  cursor: default;\r\n  display: inline-block;\r\n  font-size: 2.25em;\r\n  height: 2.35em;\r\n  line-height: 2.35em;\r\n  margin: 0 0 0.75em 0;\r\n  text-align: center;\r\n  width: 2.35em;\n}\n#header h1 {\r\n  font-size: 2.5em;\r\n  margin: 0;\n}\n#header p {\r\n  font-size: 1.5em;\r\n  line-height: 1.5em;\r\n  margin: 0 10vw;\n}\n#header span img {\r\n  /* filter: drop-shadow(1px 1px 0px purple) drop-shadow(-1px 1px 0px purple) drop-shadow(1px -1px 0px purple) drop-shadow(-1px -1px 0px purple); */\r\n  filter: drop-shadow(0 0 0.3rem black);\n}\nheader {\r\n  text-align: center;\n}\nheader p {\r\n  position: relative;\r\n  top: -1em;\r\n  color: #888888;\r\n  text-transform: uppercase;\r\n  letter-spacing: 0.075em;\n}\nheader.major {\r\n  margin-bottom: 6em;\r\n  padding: 4em 0;\r\n  position: relative;\n}\nheader.major:before {\r\n  top: 10px;\n}\nheader.major:after {\r\n  bottom: 10px;\n}\nheader.major h2 {\r\n  margin: 0;\n}\nheader.major p {\r\n  top: 0;\r\n  margin: 1.5em 0 0 0;\r\n  padding: 1.5em 1.5em 0 1.5em;\r\n  font-size: 1.5em;\r\n  line-height: 1.75em;\r\n  border-top: solid 1px rgba(224, 224, 224, 0.75);\r\n  display: inline-block;\n}\nheader.major.last {\r\n  border-bottom: 0;\r\n  margin-bottom: 0;\r\n  padding-bottom: 0;\n}\nheader.major.last:after {\r\n  display: none;\n}\nheader.major.last h2 {\r\n  margin-bottom: 1em;\n}\r\n\r\n/* Box */\n.box {\r\n  background: white;\r\n  border: solid 1px rgba(224, 224, 224, 0.75);\r\n  margin-bottom: 6em;\r\n  padding: 3.5em;\n}\n.box.alt {\r\n  background: none;\r\n  border: none;\r\n  padding: 0;\n}\r\n\r\n/* Feature */\n.feature {\r\n  position: relative;\r\n  height: 20em;\n}\n.feature:after {\r\n  clear: both;\r\n  content: \"\";\r\n  display: block;\n}\n.feature h3 {\r\n  text-align: inherit;\n}\n@media (max-width: 480px) {\n.feature h3 {\r\n    font-size: 1.3rem;\n}\n.feature .content {\r\n    padding: 0 1rem !important;\r\n    vertical-align: unset !important;\n}\n}\n.feature .image {\r\n  display: inline-block;\r\n  height: 100%;\r\n  overflow: hidden;\r\n  position: relative;\r\n  width: 50%;\n}\n.feature .image img {\r\n  display: block;\r\n  max-height: 100%;\r\n  max-width: 100%;\r\n  position: absolute;\n}\n.feature:before {\r\n  background: blue;\r\n  content: \"\";\r\n  display: inline-block;\r\n  height: 100%;\r\n  vertical-align: middle;\n}\n.feature .content {\r\n  display: inline-block;\r\n  padding: 3.5em;\r\n  vertical-align: middle;\r\n  width: 48%;\n}\n.feature .content h3 {\r\n  margin-bottom: 0.5em;\r\n  font-weight: 900;\n}\n.feature .content :last-child {\r\n  margin: 0;\r\n  line-height: 1.2rem;\r\n  font-size: 1rem;\n}\n.feature.left {\r\n  text-align: left;\n}\n.feature.left .image {\r\n  float: left;\n}\n.feature.left .image img {\r\n  right: 0;\r\n  top: 0;\n}\n.feature.left .content {\r\n  padding-right: 0;\n}\n.feature.right {\r\n  text-align: right;\n}\n.feature.right .image {\r\n  float: right;\n}\n.feature.right .image img {\r\n  left: 0;\r\n  top: 0;\n}\n.feature.right .content {\r\n  padding-left: 0;\n}\n.feature.long .content {\r\n  padding-top: 0;\n}\r\n\r\n/* Footer */\n#footer {\r\n  background-attachment: scroll;\r\n  background-color: #3fa9f5;\r\n  background-image: url(\"/images/home/bottom-3200.svg\");\r\n  /* background-image: url(\"images/bottom-1600.svg\"); */\r\n  background-position: top center;\r\n  background-repeat: repeat-x;\r\n  background-size: 3200px 460px;\r\n  color: rgba(255, 255, 255, 0.8);\r\n\r\n  padding: calc(460px + 6em) 0 10em 0;\r\n  position: relative;\r\n  text-align: center;\n}\n#footer a {\r\n  color: white;\n}\n#footer strong,\r\n#footer b {\r\n  color: white;\n}\n#footer h1,\r\n#footer h2,\r\n#footer h3,\r\n#footer h4,\r\n#footer h5,\r\n#footer h6 {\r\n  color: white;\n}\n#footer header p {\r\n  color: rgba(255, 255, 255, 0.5);\n}\n#footer input[type=\"submit\"],\r\n#footer input[type=\"reset\"],\r\n#footer input[type=\"button\"],\r\n#footer .button,\r\n#header .button {\r\n  background: white;\r\n  box-shadow: inset 0 0 0 1px white;\r\n  color: #3fa9f5;\n}\n#footer input[type=\"submit\"]:hover,\r\n#footer input[type=\"reset\"]:hover,\r\n#footer input[type=\"button\"]:hover,\r\n#header .button:hover,\r\n#footer .button:hover {\r\n  background: rgba(224, 224, 224, 0.15);\r\n  color: white;\n}\n#footer input[type=\"text\"]:focus,\r\n#footer input[type=\"password\"]:focus,\r\n#footer input[type=\"email\"]:focus,\r\n#footer select:focus,\r\n#footer textarea:focus {\r\n  border-color: white;\n}\ninput[type=\"text\"]:focus,\r\ninput[type=\"password\"]:focus,\r\ninput[type=\"email\"]:focus,\r\nselect:focus,\r\ntextarea:focus {\r\n  background: rgba(224, 224, 224, 0.15);\r\n  border-color: #3fa9f5;\n}\n::-webkit-input-placeholder {\r\n  color: inherit;\r\n  opacity: 0.5;\r\n  position: relative;\r\n  top: 3px;\n}\n:-moz-placeholder {\r\n  color: inherit;\r\n  opacity: 0.5;\n}\n::-moz-placeholder {\r\n  color: inherit;\r\n  opacity: 0.5;\n}\n:-ms-input-placeholder {\r\n  color: inherit;\r\n  opacity: 0.5;\n}\n#footer .formerize-placeholder {\r\n  color: rgba(255, 255, 255, 0.3) !important;\n}\n#footer form {\r\n  margin: 3em 0;\n}\n#footer .copyright {\r\n  color: rgba(255, 255, 255, 0.5);\r\n  font-size: 0.8em;\r\n  line-height: 1em;\r\n  margin: 3em 0 0 0;\r\n  padding: unset;\n}\n#footer .copyright li {\r\n  border-left: dotted 1px;\r\n  display: inline-block;\r\n  margin-left: 1em;\r\n  padding-left: 1em;\n}\n#footer .copyright li:first-child {\r\n  padding: 0;\r\n  margin: 0;\r\n  border: 0;\n}\n#footer .copyright li a,\r\n#footer .copyright li span {\r\n  color: inherit;\n}\n#footer .copyright li a:hover,\r\n#footer .copyright li span:hover {\r\n  color: white;\n}\n.containerr {\r\n  margin-left: auto;\r\n  margin-right: auto;\r\n  width: 48em;\n}\n@media (max-width: 780px) {\n.containerr {\r\n    width: 80%;\n}\r\n  /* .input100 {\r\n    flex-direction: column !important;\r\n  } */\ninput[type=\"email\"],\r\n  input[type=\"text\"] {\r\n    width: 100%;\n}\n}\r\n\r\n/* Button */\n.button {\r\n  -moz-appearance: none;\r\n  -webkit-appearance: none;\r\n  -o-appearance: none;\r\n  appearance: none;\r\n  transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out;\r\n  background: #0c2b6c;\r\n  border-radius: 4px;\r\n  border: 0;\r\n  color: white;\r\n  cursor: pointer;\r\n  display: inline-block;\r\n  font-size: 0.9em;\r\n  font-weight: 700;\r\n  letter-spacing: 0.125em;\r\n  line-height: 3.25em;\r\n  min-width: 15em;\r\n  padding: 0 1.5em;\r\n  text-align: center;\r\n  text-decoration: none;\r\n  text-transform: uppercase;\n}\ninput[type=\"email\"],\r\ninput[type=\"text\"],\r\ntextarea {\r\n  transition: background-color 0.2s ease-in-out;\r\n  background: none;\r\n  border-radius: 4px;\r\n  border: 0;\r\n  border: solid 1px rgba(224, 224, 224, 0.75);\r\n  color: inherit;\r\n  display: block;\r\n  outline: 0;\r\n  padding: 0.75em;\r\n  text-decoration: none;\r\n  width: 100%;\r\n  opacity: 1;\n}\ntextarea {\r\n  height: 10rem;\n}\n.input-feedback {\r\n  width: 48%;\n}\n.area-text {\r\n  width: 100%;\n}\n.button:hover {\r\n  background: #264a98;\r\n  color: white;\r\n  text-decoration: none;\n}\nul.actions {\r\n  cursor: default;\r\n  text-align: center;\r\n  padding: 0 !important;\n}\r\n\r\n/* Icon */\n.icon {\r\n  text-decoration: none;\r\n  border-bottom: none;\r\n  position: relative;\n}\n.icon:before {\r\n  -moz-osx-font-smoothing: grayscale;\r\n  -webkit-font-smoothing: antialiased;\r\n  font-family: FontAwesome;\r\n  font-style: normal;\r\n  font-weight: normal;\r\n  text-transform: none !important;\n}\n.icon > .label {\r\n  display: none;\n}\nul.icons {\r\n  cursor: default;\r\n  padding-left: unset;\n}\nul.icons li {\r\n  display: inline-block;\r\n  font-size: 1.25em;\r\n  line-height: 1em;\r\n  padding-left: 0.5em;\n}\nul.icons li:first-child {\r\n  padding-left: 0;\n}\nul.icons li a,\r\nul.icons li span {\r\n  transition: background-color 0.2s ease-in-out;\r\n  border-radius: 100%;\r\n  border: solid 1px rgba(224, 224, 224, 0.75);\r\n  display: inline-block;\r\n  height: 2em;\r\n  line-height: 2em;\r\n  text-align: center;\r\n  width: 2em;\n}\nul.icons li a:hover,\r\nul.icons li span:hover {\r\n  background: rgba(224, 224, 224, 0.15);\n}\nul.actions {\r\n  cursor: default;\r\n  text-align: center;\n}\nul.actions:last-child {\r\n  margin-bottom: 0;\n}\nul.actions li {\r\n  display: inline-block;\r\n  padding: 0 0 0 1.5em;\n}\nul.actions li:first-child {\r\n  padding: 0;\n}\nul.actions.vertical li {\r\n  display: block;\r\n  padding: 1.5em 0 0 0;\n}\nul.actions.vertical li:first-child {\r\n  padding: 0;\n}\r\n\r\n/* GLOBAL */\na {\r\n  text-decoration: none;\n}\nli {\r\n  list-style: none;\n}\r\n", ""]);
+exports.push([module.i, "\n#header {\r\n  background-attachment: scroll, scroll, fixed;\r\n  background: #3fa9f5;\r\n  /* background-image: url(\"images/top-1600.svg\"), url(\"images/overlay.png\"), url(\"../images/header.jpg\"); */\r\n\r\n  background-image: url(\"/images/home/top-3200.svg\");\r\n  /* background-image: url(\"images/top-1600.svg\"); */\r\n  background-position: bottom center, top left, center center;\r\n  background-repeat: repeat-x, repeat, no-repeat;\r\n  background-size: 3200px 460px, auto, cover;\r\n  color: rgba(255, 255, 255, 0.8);\r\n  padding: 10em 0 20em 0;\r\n  position: relative;\r\n  text-align: center;\n}\n#header:before {\r\n  height: calc(100% - 50px);\r\n  opacity: 0.15;\r\n  top: 0;\n}\n#header:after {\r\n  bottom: 0;\r\n  height: 50px;\n}\n#header a {\r\n  border-bottom-color: rgba(255, 255, 255, 0.35);\r\n  color: rgba(255, 255, 255, 0.8);\n}\n#header a:hover {\r\n  border-bottom-color: transparent;\r\n  color: #3fa9f5;\n}\n#header strong,\r\n#header b {\r\n  color: white;\n}\n#header h1,\r\n#header h2,\r\n#header h3,\r\n#header h4,\r\n#header h5,\r\n#header h6 {\r\n  color: white;\n}\n#header input[type=\"submit\"],\r\n#header input[type=\"reset\"],\r\n#header input[type=\"button\"],\r\n#header .button {\r\n  background: white;\r\n  color: #544d55;\n}\n#header .logo {\r\n  background: #0c2b6c;\r\n  border-radius: 100%;\r\n  color: white;\r\n  cursor: default;\r\n  display: inline-block;\r\n  font-size: 2.25em;\r\n  height: 2.35em;\r\n  line-height: 2.35em;\r\n  margin: 0 0 0.75em 0;\r\n  text-align: center;\r\n  width: 2.35em;\n}\n#header h1 {\r\n  font-size: 2.5em;\r\n  margin: 0;\n}\n#header p {\r\n  font-size: 1.5em;\r\n  line-height: 1.5em;\r\n  margin: 0 10vw;\r\n  font-family: \"Poppins-Regular\";\n}\n#header span img {\r\n  /* filter: drop-shadow(1px 1px 0px purple) drop-shadow(-1px 1px 0px purple) drop-shadow(1px -1px 0px purple) drop-shadow(-1px -1px 0px purple); */\r\n  filter: drop-shadow(0 0 0.3rem black);\n}\nheader {\r\n  text-align: center;\n}\nheader p {\r\n  position: relative;\r\n  top: -1em;\r\n  color: #888888;\r\n  text-transform: uppercase;\r\n  letter-spacing: 0.075em;\n}\nheader.major {\r\n  margin-bottom: 6em;\r\n  padding: 4em 0;\r\n  position: relative;\n}\nheader.major:before {\r\n  top: 10px;\n}\nheader.major:after {\r\n  bottom: 10px;\n}\nheader.major h2 {\r\n  margin: 0;\r\n  font-family: \"Poppins-Medium\";\n}\nheader.major p {\r\n  top: 0;\r\n  margin: 1.5em 0 0 0;\r\n  padding: 1.5em 1.5em 0 1.5em;\r\n  font-size: 1.5em;\r\n  line-height: 1.75em;\r\n  border-top: solid 1px rgba(224, 224, 224, 0.75);\r\n  display: inline-block;\n}\nheader.major.last {\r\n  border-bottom: 0;\r\n  margin-bottom: 0;\r\n  padding-bottom: 0;\n}\nheader.major.last:after {\r\n  display: none;\n}\nheader.major.last h2 {\r\n  margin-bottom: 1em;\n}\r\n\r\n/* Box */\n.box {\r\n  background: white;\r\n  border: solid 1px rgba(224, 224, 224, 0.75);\r\n  margin-bottom: 6em;\r\n  padding: 3.5em;\n}\n.box.alt {\r\n  background: none;\r\n  border: none;\r\n  padding: 0;\n}\r\n\r\n/* Feature */\n.feature {\r\n  position: relative;\r\n  height: 20em;\n}\n.feature:after {\r\n  clear: both;\r\n  content: \"\";\r\n  display: block;\n}\n.feature h3 {\r\n  text-align: inherit;\n}\n@media (max-width: 480px) {\n.feature h3 {\r\n    font-size: 1.3rem;\n}\n.feature .content {\r\n    padding: 0 1rem !important;\r\n    vertical-align: unset !important;\n}\n}\n.feature .image {\r\n  display: inline-block;\r\n  height: 100%;\r\n  overflow: hidden;\r\n  position: relative;\r\n  width: 50%;\n}\n.feature .image img {\r\n  display: block;\r\n  max-height: 100%;\r\n  max-width: 100%;\r\n  position: absolute;\n}\n.feature:before {\r\n  background: blue;\r\n  content: \"\";\r\n  display: inline-block;\r\n  height: 100%;\r\n  vertical-align: middle;\n}\n.feature .content {\r\n  display: inline-block;\r\n  padding: 3.5em;\r\n  vertical-align: middle;\r\n  width: 48%;\n}\n.feature .content h3 {\r\n  margin-bottom: 0.5em;\r\n  /* font-weight: 600; */\r\n  font-family: \"Poppins-Medium\";\n}\n.feature .content :last-child {\r\n  margin: 0;\r\n  line-height: 1.2rem;\r\n  font-size: 1rem;\r\n  font-family: \"Poppins-Light\";\n}\n.feature.left {\r\n  text-align: left;\n}\n.feature.left .image {\r\n  float: left;\n}\n.feature.left .image img {\r\n  right: 0;\r\n  top: 0;\n}\n.feature.left .content {\r\n  padding-right: 0;\n}\n.feature.right {\r\n  text-align: right;\n}\n.feature.right .image {\r\n  float: right;\n}\n.feature.right .image img {\r\n  left: 0;\r\n  top: 0;\n}\n.feature.right .content {\r\n  padding-left: 0;\n}\n.feature.long .content {\r\n  padding-top: 0;\n}\r\n\r\n/* Footer */\n#footer {\r\n  background-attachment: scroll;\r\n  background-color: #3fa9f5;\r\n  background-image: url(\"/images/home/bottom-3200.svg\");\r\n  /* background-image: url(\"images/bottom-1600.svg\"); */\r\n  background-position: top center;\r\n  background-repeat: repeat-x;\r\n  background-size: 3200px 460px;\r\n  color: rgba(255, 255, 255, 0.8);\r\n\r\n  padding: calc(460px + 6em) 0 10em 0;\r\n  position: relative;\r\n  text-align: center;\n}\n#footer a {\r\n  color: white;\n}\n#footer strong,\r\n#footer b {\r\n  color: white;\n}\n#footer h1,\r\n#footer h2,\r\n#footer h3,\r\n#footer h4,\r\n#footer h5,\r\n#footer h6 {\r\n  color: white;\n}\n#footer header p {\r\n  color: rgba(255, 255, 255, 0.5);\n}\n#footer input[type=\"submit\"],\r\n#footer input[type=\"reset\"],\r\n#footer input[type=\"button\"],\r\n#footer .button,\r\n#header .button {\r\n  background: white;\r\n  box-shadow: inset 0 0 0 1px white;\r\n  color: #3fa9f5;\n}\n#footer input[type=\"submit\"]:hover,\r\n#footer input[type=\"reset\"]:hover,\r\n#footer input[type=\"button\"]:hover,\r\n#header .button:hover,\r\n#footer .button:hover {\r\n  background: rgba(224, 224, 224, 0.15);\r\n  color: white;\n}\n#footer input[type=\"text\"]:focus,\r\n#footer input[type=\"password\"]:focus,\r\n#footer input[type=\"email\"]:focus,\r\n#footer select:focus,\r\n#footer textarea:focus {\r\n  border-color: white;\n}\ninput[type=\"text\"]:focus,\r\ninput[type=\"password\"]:focus,\r\ninput[type=\"email\"]:focus,\r\nselect:focus,\r\ntextarea:focus {\r\n  background: rgba(224, 224, 224, 0.15);\r\n  border-color: #3fa9f5;\n}\n::-webkit-input-placeholder {\r\n  color: inherit;\r\n  opacity: 0.5;\r\n  position: relative;\r\n  top: 3px;\n}\n:-moz-placeholder {\r\n  color: inherit;\r\n  opacity: 0.5;\n}\n::-moz-placeholder {\r\n  color: inherit;\r\n  opacity: 0.5;\n}\n:-ms-input-placeholder {\r\n  color: inherit;\r\n  opacity: 0.5;\n}\n#footer .formerize-placeholder {\r\n  color: rgba(255, 255, 255, 0.3) !important;\n}\n#footer form {\r\n  margin: 3em 0;\n}\n#footer .copyright {\r\n  color: rgba(255, 255, 255, 0.5);\r\n  font-size: 0.8em;\r\n  line-height: 1em;\r\n  margin: 3em 0 0 0;\r\n  padding: unset;\n}\n#footer .copyright li {\r\n  border-left: dotted 1px;\r\n  display: inline-block;\r\n  margin-left: 1em;\r\n  padding-left: 1em;\n}\n#footer .copyright li:first-child {\r\n  padding: 0;\r\n  margin: 0;\r\n  border: 0;\n}\n#footer .copyright li a,\r\n#footer .copyright li span {\r\n  color: inherit;\n}\n#footer .copyright li a:hover,\r\n#footer .copyright li span:hover {\r\n  color: white;\n}\n.containerr {\r\n  margin-left: auto;\r\n  margin-right: auto;\r\n  width: 48em;\n}\n@media (max-width: 780px) {\n.containerr {\r\n    width: 80%;\n}\r\n  /* .input100 {\r\n    flex-direction: column !important;\r\n  } */\ninput[type=\"email\"],\r\n  input[type=\"text\"] {\r\n    width: 100%;\n}\n}\r\n\r\n/* Button */\n.button {\r\n  -moz-appearance: none;\r\n  -webkit-appearance: none;\r\n  -o-appearance: none;\r\n  appearance: none;\r\n  transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out;\r\n  background: #0c2b6c;\r\n  border-radius: 4px;\r\n  border: 0;\r\n  color: white;\r\n  cursor: pointer;\r\n  display: inline-block;\r\n  font-size: 0.9em;\r\n  font-weight: 700;\r\n  letter-spacing: 0.125em;\r\n  line-height: 3.25em;\r\n  min-width: 15em;\r\n  padding: 0 1.5em;\r\n  text-align: center;\r\n  text-decoration: none;\r\n  text-transform: uppercase;\n}\ninput[type=\"email\"],\r\ninput[type=\"text\"],\r\ntextarea {\r\n  transition: background-color 0.2s ease-in-out;\r\n  background: none;\r\n  border-radius: 4px;\r\n  border: 0;\r\n  border: solid 1px rgba(224, 224, 224, 0.75);\r\n  color: inherit;\r\n  display: block;\r\n  outline: 0;\r\n  padding: 0.75em;\r\n  text-decoration: none;\r\n  width: 100%;\r\n  opacity: 1;\n}\ntextarea {\r\n  height: 10rem;\n}\n.input-feedback {\r\n  width: 48%;\n}\n.area-text {\r\n  width: 100%;\n}\n.button:hover {\r\n  background: #264a98;\r\n  color: white;\r\n  text-decoration: none;\n}\nul.actions {\r\n  cursor: default;\r\n  text-align: center;\r\n  padding: 0 !important;\n}\r\n\r\n/* Icon */\n.icon {\r\n  text-decoration: none;\r\n  border-bottom: none;\r\n  position: relative;\n}\n.icon:before {\r\n  -moz-osx-font-smoothing: grayscale;\r\n  -webkit-font-smoothing: antialiased;\r\n  font-family: FontAwesome;\r\n  font-style: normal;\r\n  font-weight: normal;\r\n  text-transform: none !important;\n}\n.icon > .label {\r\n  display: none;\n}\nul.icons {\r\n  cursor: default;\r\n  padding-left: unset;\n}\nul.icons li {\r\n  display: inline-block;\r\n  font-size: 1.25em;\r\n  line-height: 1em;\r\n  padding-left: 0.5em;\n}\nul.icons li:first-child {\r\n  padding-left: 0;\n}\nul.icons li a,\r\nul.icons li span {\r\n  transition: background-color 0.2s ease-in-out;\r\n  border-radius: 100%;\r\n  border: solid 1px rgba(224, 224, 224, 0.75);\r\n  display: inline-block;\r\n  height: 2em;\r\n  line-height: 2em;\r\n  text-align: center;\r\n  width: 2em;\n}\nul.icons li a:hover,\r\nul.icons li span:hover {\r\n  background: rgba(224, 224, 224, 0.15);\n}\nul.actions {\r\n  cursor: default;\r\n  text-align: center;\n}\nul.actions:last-child {\r\n  margin-bottom: 0;\n}\nul.actions li {\r\n  display: inline-block;\r\n  padding: 0 0 0 1.5em;\n}\nul.actions li:first-child {\r\n  padding: 0;\n}\nul.actions.vertical li {\r\n  display: block;\r\n  padding: 1.5em 0 0 0;\n}\nul.actions.vertical li:first-child {\r\n  padding: 0;\n}\r\n\r\n/* GLOBAL */\na {\r\n  text-decoration: none;\n}\nli {\r\n  list-style: none;\n}\r\n\r\n/* higlight */\n.highligt {\r\n  background-image: linear-gradient(\r\n    0deg,\r\n    #3fa9f5 17.5px,\r\n    #3fa9f5 0,\r\n    transparent 0,\r\n    transparent\r\n  );\n}\n.feature .content .highligt {\r\n  font-family: \"Poppins-Bold\";\r\n  font-size: 2rem;\n}\r\n", ""]);
 
 // exports
 
@@ -8180,7 +8186,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\n.middle {\r\n  width: 660px;\r\n  margin: 0 auto;\n}\n@media (max-width: 770px) {\n.middle {\r\n    width: 90%;\n}\n}\n.middle h1 {\r\n  margin: 50px 0 0 0;\r\n  color: #3fa9f5;\r\n  /* font-family: \"Indie Flower\", cursive; */\r\n  font-size: 48px;\r\n  font-weight: normal;\r\n  text-align: center;\n}\n@media (max-width: 475px) {\n.middle h1 {\r\n    font-size: 2rem;\n}\n}\n.middle #fancy-inputs {\r\n  float: left;\r\n  width: 100%;\r\n  margin: 0 0 50px 0;\n}\n.middle #fancy-inputs label.input {\r\n  float: left;\r\n  width: 100%;\r\n  height: 42px;\r\n  margin: 50px 0 0 0;\r\n  position: relative;\r\n  clear: both;\r\n  margin: 8rem 0;\n}\n.middle #fancy-inputs label.input span {\r\n  width: 100%;\r\n  height: 40px;\r\n  line-height: 40px;\r\n  position: absolute;\r\n  left: 0;\r\n  cursor: text;\n}\n.middle #fancy-inputs label.input span span {\r\n  position: absolute;\r\n  top: 0;\r\n  z-index: 1;\r\n  /* font-family: \"Indie Flower\", cursive; */\r\n  font-size: 22px;\r\n  color: #3fa9f5;\r\n  text-indent: 10px;\r\n  transition: 0.3s;\r\n  -webkit-transition: 0.3s;\r\n  -moz-transition: 0.3s;\n}\n.middle #fancy-inputs label.input span:before {\r\n  content: \"\";\r\n  width: 0%;\r\n  height: 3px;\r\n  background-color: #0c2b6c;\r\n  position: absolute;\r\n  bottom: 0;\r\n  left: 0;\r\n  z-index: 99;\r\n  transition: 0.3s;\r\n  -webkit-transition: 0.3s;\r\n  -moz-transition: 0.3s;\n}\n.middle #fancy-inputs label.input span:after {\r\n  content: \"\";\r\n  width: 0%;\r\n  height: 3px;\r\n  background-color: #0c2b6c;\r\n  position: absolute;\r\n  bottom: 0;\r\n  right: 0;\r\n  z-index: 99;\r\n  transition: 0.3s;\r\n  -webkit-transition: 0.3s;\r\n  -moz-transition: 0.3s;\n}\n.middle #fancy-inputs input,\r\n.middle #fancy-inputs select {\r\n  float: left;\r\n  width: 100%;\r\n  height: 40px;\r\n  padding: 0 10px;\r\n  border: 0;\r\n  border-bottom: 3px solid #3fa9f5;\r\n  background-color: transparent;\r\n  color: #3fa9f5;\r\n  /* font-family: \"Indie Flower\", cursive; */\r\n  font-size: 22px;\r\n  position: relative;\r\n  z-index: 99;\n}\n.middle #fancy-inputs input:focus {\r\n  outline: 0;\n}\n.middle #fancy-inputs input.white {\r\n  background-color: #f8fafc;\n}\n.middle #fancy-inputs input:focus + span span {\r\n  cursor: initial;\r\n  position: absolute;\r\n  top: -35px;\r\n  color: #0c2b6c;\n}\n.middle #fancy-inputs input:focus + span:before {\r\n  width: 50%;\n}\n.middle #fancy-inputs input:focus + span:after {\r\n  width: 50%;\n}\n.middle #fancy-inputs span.fixed span {\r\n  top: -35px;\n}\n.middle #fancy-radio {\r\n  float: left;\r\n  width: 100%;\r\n  margin: 0 0 30px 0;\n}\n.middle #fancy-radio label.radio {\r\n  float: left;\r\n  width: auto;\r\n  line-height: 30px;\r\n  margin: 0 0 10px 0;\r\n  color: #3fa9f5;\r\n  /* font-family: \"Indie Flower\", cursive; */\r\n  font-size: 22px;\r\n  cursor: pointer;\r\n  position: relative;\r\n  clear: both;\r\n  transition: 0.3s;\r\n  -webkit-transition: 0.3s;\r\n  -moz-transition: 0.3s;\n}\n.middle #fancy-radio label.radio:before {\r\n  content: \"\";\r\n  float: left;\r\n  width: 29px;\r\n  height: 29px;\r\n  margin: 0 5px 0 0;\r\n  background-color: #3fa9f5;\r\n  border-radius: 100%;\r\n  font-size: 22px;\r\n  text-indent: 40px;\n}\n.middle #fancy-radio label.radio:after {\r\n  content: \"\";\r\n  width: 5px;\r\n  height: 5px;\r\n  background-color: #0c2b6c;\r\n  border-radius: 100%;\r\n  position: absolute;\r\n  top: 12px;\r\n  left: 12px;\r\n  opacity: 0;\r\n  transition: 0.2s;\r\n  -webkit-transition: 0.2s;\r\n  -moz-transition: 0.2s;\n}\n.middle #fancy-radio label.radio.selected:after {\r\n  width: 15.5px;\r\n  height: 15.5px;\r\n  top: 7px;\r\n  left: 7px;\r\n  opacity: 1;\n}\n.middle #fancy-radio label.radio:hover {\r\n  text-indent: 5px;\n}\n.middle .btn {\r\n  float: left;\r\n  width: 100%;\r\n  height: 50px;\r\n  line-height: 50px;\r\n  margin: 0 0 50px 0;\r\n  background-color: #0c2b6c;\r\n  color: white;\r\n  /* font-family: \"Indie Flower\", cursive; */\r\n  font-size: 22px;\r\n  text-decoration: none;\r\n  text-align: center;\r\n  transition: 0.3s;\r\n  -webkit-transition: 0.3s;\r\n  -moz-transition: 0.3s;\n}\n.middle .btn:hover {\r\n  background-color: #3fa9f5;\n}\r\n\r\n/* teks */\n.middle .teks-label {\r\n  font-size: 1.5rem;\n}\r\n\r\n/* star */\n.middle .required-star {\r\n  font-size: 24px;\r\n  color: #d12323;\r\n  float: right;\r\n  transform: translateY(-40px);\n}\r\n", ""]);
+exports.push([module.i, "\n.middle {\r\n  width: 660px;\r\n  margin: 0 auto;\n}\n@media (max-width: 770px) {\n.middle {\r\n    width: 90%;\n}\n}\n.middle h1 {\r\n  margin: 50px 0 0 0;\r\n  color: #3fa9f5;\r\n  /* font-family: \"Indie Flower\", cursive; */\r\n  font-size: 48px;\r\n  font-weight: normal;\r\n  text-align: center;\r\n  font-family: \"Poppins-Bold\";\n}\n@media (max-width: 475px) {\n.middle h1 {\r\n    font-size: 2rem;\n}\n}\n.middle #fancy-inputs {\r\n  float: left;\r\n  width: 100%;\r\n  margin: 0 0 50px 0;\n}\n.middle #fancy-inputs label.input {\r\n  float: left;\r\n  width: 100%;\r\n  height: 42px;\r\n  margin: 50px 0 0 0;\r\n  position: relative;\r\n  clear: both;\r\n  margin: 8rem 0;\n}\n.middle #fancy-inputs label.input span {\r\n  width: 100%;\r\n  height: 40px;\r\n  line-height: 40px;\r\n  position: absolute;\r\n  left: 0;\r\n  cursor: text;\n}\n.middle #fancy-inputs label.input span span {\r\n  position: absolute;\r\n  top: 0;\r\n  z-index: 1;\r\n  /* font-family: \"Indie Flower\", cursive; */\r\n  font-size: 22px;\r\n  color: #3fa9f5;\r\n  text-indent: 10px;\r\n  transition: 0.3s;\r\n  -webkit-transition: 0.3s;\r\n  -moz-transition: 0.3s;\n}\n.middle #fancy-inputs label.input span:before {\r\n  content: \"\";\r\n  width: 0%;\r\n  height: 3px;\r\n  background-color: #0c2b6c;\r\n  position: absolute;\r\n  bottom: 0;\r\n  left: 0;\r\n  z-index: 99;\r\n  transition: 0.3s;\r\n  -webkit-transition: 0.3s;\r\n  -moz-transition: 0.3s;\n}\n.middle #fancy-inputs label.input span:after {\r\n  content: \"\";\r\n  width: 0%;\r\n  height: 3px;\r\n  background-color: #0c2b6c;\r\n  position: absolute;\r\n  bottom: 0;\r\n  right: 0;\r\n  z-index: 99;\r\n  transition: 0.3s;\r\n  -webkit-transition: 0.3s;\r\n  -moz-transition: 0.3s;\n}\n.middle #fancy-inputs input,\r\n.middle #fancy-inputs select {\r\n  float: left;\r\n  width: 100%;\r\n  height: 40px;\r\n  padding: 0 10px;\r\n  border: 0;\r\n  border-bottom: 3px solid #3fa9f5;\r\n  background-color: transparent;\r\n  color: #3fa9f5;\r\n  /* font-family: \"Indie Flower\", cursive; */\r\n  font-size: 22px;\r\n  position: relative;\r\n  z-index: 99;\r\n  font-family: \"Poppins-Regular\";\n}\n.middle #fancy-inputs input:focus {\r\n  outline: 0;\n}\n.middle #fancy-inputs input.white {\r\n  background-color: #f8fafc;\n}\n.middle #fancy-inputs input:focus + span span {\r\n  cursor: initial;\r\n  position: absolute;\r\n  top: -35px;\r\n  color: #0c2b6c;\n}\n.middle #fancy-inputs input:focus + span:before {\r\n  width: 50%;\n}\n.middle #fancy-inputs input:focus + span:after {\r\n  width: 50%;\n}\n.middle #fancy-inputs span.fixed span {\r\n  top: -35px;\n}\n.middle #fancy-radio {\r\n  float: left;\r\n  width: 100%;\r\n  margin: 0 0 30px 0;\n}\n.middle #fancy-radio label.radio {\r\n  float: left;\r\n  width: auto;\r\n  line-height: 30px;\r\n  margin: 0 0 10px 0;\r\n  color: #3fa9f5;\r\n  /* font-family: \"Indie Flower\", cursive; */\r\n  font-size: 22px;\r\n  cursor: pointer;\r\n  position: relative;\r\n  clear: both;\r\n  transition: 0.3s;\r\n  -webkit-transition: 0.3s;\r\n  -moz-transition: 0.3s;\n}\n.middle #fancy-radio label.radio:before {\r\n  content: \"\";\r\n  float: left;\r\n  width: 29px;\r\n  height: 29px;\r\n  margin: 0 5px 0 0;\r\n  background-color: #3fa9f5;\r\n  border-radius: 100%;\r\n  font-size: 22px;\r\n  text-indent: 40px;\n}\n.middle #fancy-radio label.radio:after {\r\n  content: \"\";\r\n  width: 5px;\r\n  height: 5px;\r\n  background-color: #0c2b6c;\r\n  border-radius: 100%;\r\n  position: absolute;\r\n  top: 12px;\r\n  left: 12px;\r\n  opacity: 0;\r\n  transition: 0.2s;\r\n  -webkit-transition: 0.2s;\r\n  -moz-transition: 0.2s;\n}\n.middle #fancy-radio label.radio.selected:after {\r\n  width: 15.5px;\r\n  height: 15.5px;\r\n  top: 7px;\r\n  left: 7px;\r\n  opacity: 1;\n}\n.middle #fancy-radio label.radio:hover {\r\n  text-indent: 5px;\n}\n.middle .btn {\r\n  float: left;\r\n  width: 100%;\r\n  height: 50px;\r\n  line-height: 50px;\r\n  margin: 0 0 50px 0;\r\n  background-color: #0c2b6c;\r\n  color: white;\r\n  /* font-family: \"Indie Flower\", cursive; */\r\n  font-size: 22px;\r\n  text-decoration: none;\r\n  text-align: center;\r\n  transition: 0.3s;\r\n  -webkit-transition: 0.3s;\r\n  -moz-transition: 0.3s;\n}\n.middle .btn:hover {\r\n  background-color: #3fa9f5;\n}\r\n\r\n/* teks */\n.middle .teks-label {\r\n  font-size: 1.5rem;\r\n  font-family: \"Poppins-Regular\";\n}\r\n\r\n/* star */\n.middle .required-star {\r\n  font-size: 24px;\r\n  color: #d12323;\r\n  float: right;\r\n  transform: translateY(-40px);\n}\r\n", ""]);
 
 // exports
 
@@ -31011,21 +31017,39 @@ var staticRenderFns = [
       [
         _c("ul", { staticClass: "navbar-nav mr-auto" }, [
           _c("li", { staticClass: "nav-item" }, [
-            _c("a", { staticClass: "nav-link", attrs: { href: "#header" } }, [
-              _vm._v("Home")
-            ])
+            _c(
+              "a",
+              {
+                staticClass: "nav-link",
+                staticStyle: { "font-family": "Poppins-Light" },
+                attrs: { href: "#header" }
+              },
+              [_vm._v("Home")]
+            )
           ]),
           _vm._v(" "),
           _c("li", { staticClass: "nav-item" }, [
-            _c("a", { staticClass: "nav-link", attrs: { href: "#main" } }, [
-              _vm._v("Alur Kerja")
-            ])
+            _c(
+              "a",
+              {
+                staticClass: "nav-link",
+                staticStyle: { "font-family": "Poppins-Light" },
+                attrs: { href: "#main" }
+              },
+              [_vm._v("Alur Kerja")]
+            )
           ]),
           _vm._v(" "),
           _c("li", { staticClass: "nav-item" }, [
-            _c("a", { staticClass: "nav-link", attrs: { href: "#feed" } }, [
-              _vm._v("Feedback")
-            ])
+            _c(
+              "a",
+              {
+                staticClass: "nav-link",
+                staticStyle: { "font-family": "Poppins-Light" },
+                attrs: { href: "#feed" }
+              },
+              [_vm._v("Feedback")]
+            )
           ])
         ])
       ]
@@ -31205,9 +31229,14 @@ var render = function() {
         "footer",
         { staticClass: "d-flex", staticStyle: { "flex-direction": "column" } },
         [
-          _c("h3", { staticClass: "m-auto" }, [
-            _vm._v("Tertarik menggunakan jasa kami?")
-          ]),
+          _c(
+            "h3",
+            {
+              staticClass: "m-auto",
+              staticStyle: { "font-family": "Poppins-Medium" }
+            },
+            [_vm._v("\n        Tertarik menggunakan jasa kami?\n      ")]
+          ),
           _vm._v(" "),
           _c(
             "ul",
@@ -31383,7 +31412,10 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "content" }, [
-      _c("h3", [_vm._v("Mengisi Form Pengajuan Proyek")]),
+      _c("h3", [
+        _c("span", { staticClass: "highligt" }, [_vm._v("1.")]),
+        _vm._v(" Mengisi Form Pengajuan Proyek\n          ")
+      ]),
       _vm._v(" "),
       _c("p", [_vm._v("Form pengajuan dapat diisi di halaman ini")])
     ])
@@ -31393,7 +31425,10 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "content" }, [
-      _c("h3", [_vm._v("Diskusi dengan Klien")]),
+      _c("h3", [
+        _c("span", { staticClass: "highligt" }, [_vm._v("2.")]),
+        _vm._v("Diskusi dengan Klien")
+      ]),
       _vm._v(" "),
       _c("p", [
         _vm._v(
@@ -31407,7 +31442,10 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "content" }, [
-      _c("h3", [_vm._v("Mencari Desainer")]),
+      _c("h3", [
+        _c("span", { staticClass: "highligt" }, [_vm._v("3.")]),
+        _vm._v("Mencari Desainer")
+      ]),
       _vm._v(" "),
       _c("p", [
         _vm._v(
@@ -31421,7 +31459,10 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "content" }, [
-      _c("h3", [_vm._v("Persetujuan Perjanjian")]),
+      _c("h3", [
+        _c("span", { staticClass: "highligt" }, [_vm._v("4.")]),
+        _vm._v("Persetujuan Perjanjian")
+      ]),
       _vm._v(" "),
       _c("p", [
         _vm._v(
@@ -31435,7 +31476,10 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "content" }, [
-      _c("h3", [_vm._v("Pengerjaan Proyek")]),
+      _c("h3", [
+        _c("span", { staticClass: "highligt" }, [_vm._v("5.")]),
+        _vm._v("Pengerjaan Proyek")
+      ]),
       _vm._v(" "),
       _c("p", [
         _vm._v(
@@ -31449,7 +31493,10 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "content" }, [
-      _c("h3", [_vm._v("Selesai")]),
+      _c("h3", [
+        _c("span", { staticClass: "highligt" }, [_vm._v("6.")]),
+        _vm._v("Selesai")
+      ]),
       _vm._v(" "),
       _c("p", [
         _vm._v(
@@ -48167,7 +48214,7 @@ __webpack_require__.r(__webpack_exports__);
     name: 'request',
     component: _views_project_Create_vue__WEBPACK_IMPORTED_MODULE_3__["default"]
   }, {
-    path: '/table',
+    path: '/project-table',
     name: 'project.table',
     component: _views_project_Read_vue__WEBPACK_IMPORTED_MODULE_4__["default"]
   }, {
@@ -49033,8 +49080,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! F:\KULIAH LUUUUR\HMIF\KWU\PROJEK\create_it\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! F:\KULIAH LUUUUR\HMIF\KWU\PROJEK\create_it\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! F:\KULIAH LUUUUR\HMIF\WEBSITE\create_it\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! F:\KULIAH LUUUUR\HMIF\WEBSITE\create_it\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

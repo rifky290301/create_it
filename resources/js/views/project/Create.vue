@@ -1,223 +1,5 @@
 <template>
   <div class="container">
-    <!-- <div class="row">
-      <div class="col-md-6">
-        <div v-if="successMessage" class="alert alert-success">
-          {{ successMessage }}
-        </div>
-        <form action="#" method="post" @submit.prevent="store">
-          <div class="form-group">
-            <label for="nama">Nama</label>
-            <input
-              type="text"
-              v-model="form.nama"
-              id="nama"
-              class="form-control"
-            />
-            <div v-if="theErrors.nama" class="mt-2 text-danger">
-              {{ theErrors.nama[0] }}
-            </div>
-          </div>
-
-          <div class="form-group">
-            <label for="instansi">Instansi</label>
-            <input
-              type="text"
-              v-model="form.instansi"
-              id="instansi"
-              class="form-control"
-            />
-            <div v-if="theErrors.instansi" class="mt-2 text-danger">
-              {{ theErrors.instansi[0] }}
-            </div>
-          </div>
-
-          <div class="form-group">
-            <label for="email">Email</label>
-            <input
-              type="text"
-              v-model="form.email"
-              id="email"
-              class="form-control"
-            />
-            <div v-if="theErrors.email" class="mt-2 text-danger">
-              {{ theErrors.email[0] }}
-            </div>
-          </div>
-
-          <div class="form-group">
-            <label for="nomorWa">Nomor WhatsApp</label>
-            <input
-              type="text"
-              v-model="form.nomorWa"
-              id="nomorWa"
-              class="form-control"
-            />
-            <div v-if="theErrors.nomorWa" class="mt-2 text-danger">
-              {{ theErrors.nomorWa[0] }}
-            </div>
-          </div>
-
-          <div class="form-group">
-            <label for="jenisProyek">Jenis Proyek</label>
-            <select
-              v-model="form.jenisProyek"
-              id="jenisProyek"
-              class="form-control"
-            >
-              <option
-                :key="jenisProyek.id"
-                :value="jenisProyek.id"
-                v-for="jenisProyek in jenisProyeks"
-              >
-                {{ jenisProyek.nama_proyek }}
-              </option>
-            </select>
-            <div v-if="theErrors.jenisProyek" class="mt-2 text-danger">
-              {{ theErrors.jenisProyek[0] }}
-            </div>
-          </div>
-
-          <div class="form-group">
-            <label for="tujuanPembuatan">Tujuan Pembuatan</label>
-            <textarea
-              v-model="form.tujuanPembuatan"
-              id="tujuanPembuatan"
-              rows="5"
-              class="form-control"
-            ></textarea>
-            <div v-if="theErrors.tujuanPembuatan" class="mt-2 text-danger">
-              {{ theErrors.tujuanPembuatan[0] }}
-            </div>
-          </div>
-
-          <div class="form-group">
-            <label for="deskripsi">Deskripsi Proyek</label>
-            <textarea
-              v-model="form.deskripsi"
-              id="deskripsi"
-              rows="5"
-              class="form-control"
-            ></textarea>
-            <div v-if="theErrors.deskripsi" class="mt-2 text-danger">
-              {{ theErrors.deskripsi[0] }}
-            </div>
-          </div>
-
-          <div class="form-group">
-            <label for="deadline">Deadline Proyek</label>
-            <input
-              v-model="form.deadline"
-              type="datetime-local"
-              id="deadline"
-            />
-          </div>
-
-          <div class="form-group">
-            <label for="desain">Desain</label>
-            <input
-              type="text"
-              v-model="form.desain"
-              id="desain"
-              class="form-control"
-            />
-            <div v-if="theErrors.desain" class="mt-2 text-danger">
-              {{ theErrors.desain[0] }}
-            </div>
-          </div>
-
-          <div class="form-group">
-            <label for="catatan">Catatan</label>
-            <textarea
-              v-model="form.catatan"
-              id="catatan"
-              rows="5"
-              class="form-control"
-            ></textarea>
-            <div v-if="theErrors.catatan" class="mt-2 text-danger">
-              {{ theErrors.catatan[0] }}
-            </div>
-          </div>
-
-          <div class="form-group">
-            <label for="pertanyaan">Pertanyaan</label>
-            <input
-              type="text"
-              v-model="form.pertanyaan"
-              id="pertanyaan"
-              class="form-control"
-            />
-            <div v-if="theErrors.pertanyaan" class="mt-2 text-danger">
-              {{ theErrors.pertanyaan[0] }}
-            </div>
-          </div>
-
-          <button
-            type="submit"
-            class="btn btn-primary d-flex align-items-center"
-          >
-            Kirim
-            <template v-if="loading">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                xmlns:xlink="http://www.w3.org/1999/xlink"
-                style="
-                  margin: auto;
-                  background: none;
-                  display: block;
-                  shape-rendering: auto;
-                "
-                width="30px"
-                height="30px"
-                viewBox="0 0 100 100"
-                preserveAspectRatio="xMidYMid"
-              >
-                <circle
-                  cx="50"
-                  cy="50"
-                  r="32"
-                  stroke-width="8"
-                  stroke="#4b79dc"
-                  stroke-dasharray="50.26548245743669 50.26548245743669"
-                  fill="none"
-                  stroke-linecap="round"
-                >
-                  <animateTransform
-                    attributeName="transform"
-                    type="rotate"
-                    dur="1s"
-                    repeatCount="indefinite"
-                    keyTimes="0;1"
-                    values="0 50 50;360 50 50"
-                  ></animateTransform>
-                </circle>
-                <circle
-                  cx="50"
-                  cy="50"
-                  r="23"
-                  stroke-width="8"
-                  stroke="#6ac2f8"
-                  stroke-dasharray="36.12831551628262 36.12831551628262"
-                  stroke-dashoffset="36.12831551628262"
-                  fill="none"
-                  stroke-linecap="round"
-                >
-                  <animateTransform
-                    attributeName="transform"
-                    type="rotate"
-                    dur="1s"
-                    repeatCount="indefinite"
-                    keyTimes="0;1"
-                    values="0 50 50;-360 50 50"
-                  ></animateTransform>
-                </circle>
-              </svg>
-            </template>
-          </button>
-        </form>
-      </div>
-    </div> -->
-
     <div class="middle">
       <form action="#" method="post" @submit.prevent="store">
         <h1>Formulir Pengajuan Proyek</h1>
@@ -225,7 +7,7 @@
         <div id="fancy-inputs">
           <label class="input">
             <div class="teks-label text-left mb-5">Siapa nama Anda</div>
-            <input type="text" v-model="form.nama" />
+            <input id="nama" type="text" v-model="form.nama" />
             <span><span>Nama</span></span>
             <div class="required-star">*</div>
             <div v-if="theErrors.nama" class="mt-2 text-danger">
@@ -238,7 +20,7 @@
               Dari instansi atun event apa anda berasal atau hanya kebutuhan
               personal
             </div>
-            <input type="text" v-model="form.instansi" />
+            <input id="instansi" type="text" v-model="form.instansi" />
             <span><span>Instansi</span></span>
             <div class="required-star">*</div>
             <div v-if="theErrors.instansi" class="mt-2 text-danger">
@@ -354,7 +136,7 @@
           </label>
         </div>
 
-        <button type="submit" class="btn">
+        <button type="submit" class="btn mb-3">
           Kirim
           <template v-if="loading">
             <svg
@@ -413,6 +195,10 @@
             </svg>
           </template>
         </button>
+        <div class="float-left h4 mb-5">
+          <span class="required-starr">*</span>
+          Wajib diisi
+        </div>
       </form>
     </div>
   </div>
@@ -455,9 +241,7 @@ export default {
         $(this).removeClass("white");
       }
     });
-
     // Radios
-
     $("#fancy-radio input[type=radio]").click(function () {
       $("label.radio").removeClass("selected");
       var inputID = $(this).attr("id");
@@ -468,6 +252,24 @@ export default {
       }
     });
 
+    var inputs = jQuery("form input").get();
+    jQuery("form").on("keydown", "input", function (e) {
+      if (e.key === "Enter") {
+        var which = inputs.indexOf(this),
+          next = inputs[which + 1];
+        if (next) {
+          next.focus();
+          // next.parentElement.scrollIntoView({ behavior: "smooth" });
+          next.parentElement.scrollIntoView({
+            behavior: "smooth",
+            block: "center",
+            // inline: "nearest",
+          });
+        }
+        e.preventDefault();
+        return false;
+      }
+    });
     this.getJenis();
   },
 
@@ -741,6 +543,7 @@ export default {
 
 .middle .btn:hover {
   background-color: #3fa9f5;
+  /* background: repeat padding-box border-box 0% 0% / auto auto scroll linear-gradient(229deg, #b76bdd 0%, rgba(29, 44, 243, 0) 100%), #3d9797; */
 }
 
 /* teks */
@@ -756,6 +559,12 @@ export default {
   color: #d12323;
   float: right;
   transform: translateY(-40px);
+}
+
+.middle .required-starr {
+  font-size: 24px;
+  color: #d12323;
+  /* float: left; */
 }
 </style>
 

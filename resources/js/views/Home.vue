@@ -29,7 +29,12 @@
       </header>
       <div class="box alt container">
         <section class="feature left">
-          <div class="image">
+          <div
+            class="image"
+            data-aos="fade-right"
+            data-aos-duration="1200"
+            data-aos-easing="ease-out-cubic"
+          >
             <img
               :src="'images/home/undrow/undraw_add_document_0hek.svg'"
               alt=""
@@ -43,7 +48,12 @@
           </div>
         </section>
         <section class="feature right">
-          <div class="image">
+          <div
+            class="image"
+            data-aos="fade-left"
+            data-aos-duration="1200"
+            data-aos-easing="ease-out-cubic"
+          >
             <img
               :src="'images/home/undrow/undraw_Mobile_messages_re_yx8w.svg'"
               alt=""
@@ -58,7 +68,12 @@
           </div>
         </section>
         <section class="feature left">
-          <div class="image">
+          <div
+            class="image"
+            data-aos="fade-right"
+            data-aos-duration="1200"
+            data-aos-easing="ease-out-cubic"
+          >
             <img
               :src="'images/home/undrow/undraw_people_search_wctu.svg'"
               alt=""
@@ -73,7 +88,12 @@
           </div>
         </section>
         <section class="feature right">
-          <div class="image">
+          <div
+            class="image"
+            data-aos="fade-left"
+            data-aos-duration="1200"
+            data-aos-easing="ease-out-cubic"
+          >
             <img :src="'images/home/undrow/undraw_agreement_aajr.svg'" alt="" />
           </div>
           <div class="content">
@@ -85,7 +105,12 @@
           </div>
         </section>
         <section class="feature left">
-          <div class="image">
+          <div
+            class="image"
+            data-aos="fade-right"
+            data-aos-duration="1200"
+            data-aos-easing="ease-out-cubic"
+          >
             <img
               :src="'images/home/undrow/undraw_innovative_b409.svg'"
               alt=""
@@ -100,7 +125,12 @@
           </div>
         </section>
         <section class="feature right">
-          <div class="image">
+          <div
+            class="image"
+            data-aos="fade-left"
+            data-aos-duration="1200"
+            data-aos-easing="ease-out-cubic"
+          >
             <img
               :src="'images/home/undrow/undraw_Checklist__re_2w7v.svg'"
               alt=""
@@ -193,12 +223,10 @@
   </div>
 </template>
 
-
-	<script src="js/jquery.min.js"></script>
-	<script src="js/skel.min.js"></script>
-	<script src="js/init.js"></script>
 <script>
 export default {
+  // components: { VueAos },
+
   data() {
     return {
       form: {
@@ -246,11 +274,13 @@ export default {
 #header {
   background-attachment: scroll, scroll, fixed;
   background: #3fa9f5;
-  /* background-image: url("images/top-1600.svg"), url("images/overlay.png"), url("../images/header.jpg"); */
 
   background-image: url("/images/home/top-3200.svg");
-  /* background-image: url("images/top-1600.svg"); */
   background-position: bottom center, top left, center center;
+
+  /* background-image: url("/images/home/weave.svg");
+  background-position: bottom bottom; */
+
   background-repeat: repeat-x, repeat, no-repeat;
   background-size: 3200px 460px, auto, cover;
   color: rgba(255, 255, 255, 0.8);
@@ -832,7 +862,7 @@ li {
 
 /* higlight */
 .highligt {
-  background-image: linear-gradient(
+  background-image: ease-out-linear-gradient(
     0deg,
     #3fa9f5 17.5px,
     #3fa9f5 0,

@@ -10,6 +10,7 @@ import ShowTheProject from '../views/project/Show.vue'
 import TableFeedback from '../views/feedback/Read.vue'
 
 import Login from '../views/auth/Login'
+import VueRouter from 'vue-router'
 
 
 export default {
@@ -22,7 +23,8 @@ export default {
     {
       path: '/',
       name: 'home',
-      component: Home
+      component: Home,
+      // meta: { title: home }
     },
     {
       path: '/about',
@@ -56,14 +58,18 @@ export default {
       name: 'project.show',
       component: ShowTheProject
     },
-
-
     {
       path: '/feedback',
       name: 'feedback',
       component: TableFeedback
     },
   ]
-
-
 }
+
+
+// const cek = new VueRouter({ routes })
+
+// cek.beforeEach((to, from, next) => {
+//   // document.title = to.meta.title
+//   console.log("tes");
+// })

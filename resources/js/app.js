@@ -37,3 +37,9 @@ const app = new Vue({
     el: '#create_it',
     router: new VueRouter(routes)
 });
+
+// const cek = new VueRouter({ routes })
+// cek.beforeEach((to, from, next) => {
+//     // document.title = to.meta.title
+//     console.log("tes");
+// })

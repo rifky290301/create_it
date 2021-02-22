@@ -31,7 +31,7 @@
         <section class="feature left">
           <div
             class="image"
-            data-aos="fade-right"
+            data-aos="fade-down"
             data-aos-duration="1200"
             data-aos-easing="ease-out-cubic"
           >
@@ -50,7 +50,7 @@
         <section class="feature right">
           <div
             class="image"
-            data-aos="fade-left"
+            data-aos="fade-down"
             data-aos-duration="1200"
             data-aos-easing="ease-out-cubic"
           >
@@ -70,7 +70,7 @@
         <section class="feature left">
           <div
             class="image"
-            data-aos="fade-right"
+            data-aos="fade-down"
             data-aos-duration="1200"
             data-aos-easing="ease-out-cubic"
           >
@@ -90,7 +90,7 @@
         <section class="feature right">
           <div
             class="image"
-            data-aos="fade-left"
+            data-aos="fade-down"
             data-aos-duration="1200"
             data-aos-easing="ease-out-cubic"
           >
@@ -107,7 +107,7 @@
         <section class="feature left">
           <div
             class="image"
-            data-aos="fade-right"
+            data-aos="fade-down"
             data-aos-duration="1200"
             data-aos-easing="ease-out-cubic"
           >
@@ -127,7 +127,7 @@
         <section class="feature right">
           <div
             class="image"
-            data-aos="fade-left"
+            data-aos="fade-down"
             data-aos-duration="1200"
             data-aos-easing="ease-out-cubic"
           >
@@ -270,6 +270,10 @@ export default {
 </script>
 <style>
 @import url("/css/home/responsif.css");
+
+/* body {
+  overflow-x: hidden;
+} */
 
 #header {
   background-attachment: scroll, scroll, fixed;
@@ -862,7 +866,16 @@ li {
 
 /* higlight */
 .highligt {
-  background-image: ease-out-linear-gradient(
+  background-image: linear-gradient(
+    0deg,
+    #8bc9f5 17.5px,
+    #8bc9f5 0,
+    transparent 0,
+    transparent
+  );
+}
+.highligt:hover {
+  background-image: linear-gradient(
     0deg,
     #3fa9f5 17.5px,
     #3fa9f5 0,

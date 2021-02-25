@@ -14,7 +14,7 @@
         Jember
       </p>
       <ul class="actions mt-5">
-        <a href="/request" class="button">Request Project</a>
+        <router-link to="/request" class="button">Request Project</router-link>
       </ul>
     </div>
 
@@ -205,7 +205,12 @@
             <a href="#" class="icon"><i class="fab fa-facebook-f"></i></a>
           </li>
           <li>
-            <a href="#" class="icon"><i class="fab fa-instagram"></i></a>
+            <a
+              href="https://www.instagram.com/createit_hmif/"
+              target="_blank"
+              class="icon"
+              ><i class="fab fa-instagram"></i
+            ></a>
           </li>
           <li>
             <a href="#" class="icon"><i class="fab fa-github"></i></a>
@@ -253,14 +258,24 @@ export default {
           this.form.pesan = "";
           // apabila eror harus dihapus erornya dengan ini setelah form diisi
           this.theErrors = [];
+
+          const Swal = require("sweetalert2");
+          const Toast = Swal.mixin({
+            toast: true,
+            position: "top-end",
+            showConfirmButton: false,
+            timer: 2000,
+            timerProgressBar: true,
+            didOpen: (toast) => {
+              toast.addEventListener("mouseenter", Swal.stopTimer);
+              toast.addEventListener("mouseleave", Swal.resumeTimer);
+            },
+          });
+          Toast.fire({
+            icon: "success",
+            title: "Feedback berhasil dikirim",
+          });
         }
-        this.$swal({
-          position: "top-end",
-          icon: "success",
-          title: "Feedback berhasil dikirim",
-          showConfirmButton: false,
-          timer: 1500,
-        });
       } catch (e) {
         this.theErrors = e.response.data.errors;
       }
@@ -278,12 +293,13 @@ export default {
 #header {
   background-attachment: scroll, scroll, fixed;
   background: #3fa9f5;
+  /* background: linear-gradient(to bottom, #3fa9f5 70%, #f8fafc 30%); */
 
   background-image: url("/images/home/top-3200.svg");
   background-position: bottom center, top left, center center;
 
-  /* background-image: url("/images/home/weave.svg");
-  background-position: bottom bottom; */
+  /* background-image: url("/images/home/weave.svg"); */
+  /* background-position: center bottom; */
 
   background-repeat: repeat-x, repeat, no-repeat;
   background-size: 3200px 460px, auto, cover;
@@ -293,11 +309,31 @@ export default {
   text-align: center;
 }
 
-#header:before {
-  height: calc(100% - 50px);
-  opacity: 0.15;
-  top: 0;
+/* @media (max-width: 600px) {
+  #header {
+    padding: 5em 0 10em 0;
+    background: linear-gradient(to bottom, #3fa9f5 80%, #f8fafc 20%);
+  }
+  #header {
+    font-size: 0.75rem;
+  }
+
+  #header span img {
+    height: 4rem;
+  }
 }
+
+#header::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  background-image: url("/images/home/weave.svg");
+  background-position: center bottom;
+  background-repeat: no-repeat;
+} */
 
 #header:after {
   bottom: 0;
@@ -363,8 +399,15 @@ export default {
 }
 
 #header span img {
-  /* filter: drop-shadow(1px 1px 0px purple) drop-shadow(-1px 1px 0px purple) drop-shadow(1px -1px 0px purple) drop-shadow(-1px -1px 0px purple); */
-  filter: drop-shadow(0 0 0.3rem black);
+  filter: drop-shadow(0 0 0.3rem rgba(0, 0, 0, 0.5));
+  -webkit-animation-name: banner3Shake;
+  animation-name: banner3Shake;
+  -webkit-animation-duration: 10s;
+  animation-duration: 10s;
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+  -webkit-animation-timing-function: linear;
+  animation-timing-function: linear;
 }
 
 header {

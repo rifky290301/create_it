@@ -13,7 +13,6 @@ try {
 
 
 import Vue from 'vue';
-import VueRouter from 'vue-router';
 import VueSweetalert2 from 'vue-sweetalert2';
 // import Toasted from 'vue-toasted';
 import AOS from "aos";
@@ -21,10 +20,10 @@ import "aos/dist/aos.css";
 
 // vue.use(Toasted)
 Vue.use(VueSweetalert2);
-Vue.use(VueRouter);
+// Vue.use(VueRouter);
 Vue.use(AOS);
 
-import routes from './router';
+import router from './router';
 
 Vue.component('navigation', require('./components/Navigation.vue').default);
 
@@ -35,11 +34,7 @@ const app = new Vue({
         AOS.init()
     },
     el: '#create_it',
-    router: new VueRouter(routes)
+    // router: new VueRouter(routes)
+    router
 });
 
-// const cek = new VueRouter({ routes })
-// cek.beforeEach((to, from, next) => {
-//     // document.title = to.meta.title
-//     console.log("tes");
-// })

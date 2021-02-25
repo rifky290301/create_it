@@ -1,11 +1,16 @@
 <template>
-  <div class="container">
+  <div class="page-back">
     <div class="middle">
       <form action="#" method="post" @submit.prevent="store">
-        <h1>Formulir Pengajuan Proyek</h1>
+        <!-- <h1>Formulir Pengajuan Proyek</h1> -->
 
-        <div id="fancy-inputs">
-          <label class="input">
+        <div id="fancy-inputs" style="margin-top: 7rem">
+          <h1>Formulir Pengajuan Proyek</h1>
+          <div class="float-right h5 mt-5">
+            Wajib diisi
+            <span class="required-starr">*</span>
+          </div>
+          <label class="input mt-2">
             <div class="teks-label text-left mb-5">Siapa nama Anda</div>
             <input id="nama" type="text" v-model="form.nama" />
             <span><span>Nama</span></span>
@@ -82,7 +87,10 @@
           </label>
 
           <label class="input">
-            <div class="teks-label text-left mb-5">Deskripsi Proyek</div>
+            <div class="teks-label text-left mb-5">
+              Deskripsi Proyek. Untuk video bisa dituliskan durasi. Untuk desain
+              grafis bisa panjang sama lebarnya
+            </div>
             <input type="text" v-model="form.deskripsi" />
             <span><span>Deskripsi</span></span>
             <div class="required-star">*</div>
@@ -106,7 +114,7 @@
 
           <label class="input">
             <div class="teks-label text-left mb-5">
-              Apakah anda memiliki desan kasaran? jelaskan
+              Apakah anda memiliki desain kasaran? jelaskan
             </div>
             <input type="text" v-model="form.desain" />
             <span><span>Desain</span></span>
@@ -136,7 +144,7 @@
           </label>
         </div>
 
-        <button type="submit" class="btn mb-3">
+        <button type="submit" class="btn mb-5">
           Kirim
           <template v-if="loading">
             <svg
@@ -195,10 +203,6 @@
             </svg>
           </template>
         </button>
-        <div class="float-left h4 mb-5">
-          <span class="required-starr">*</span>
-          Wajib diisi
-        </div>
       </form>
     </div>
   </div>
@@ -233,7 +237,6 @@ export default {
 
   mounted: function () {
     // Inputs
-
     $("#fancy-inputs input").blur(function () {
       if ($(this).val().length > 0) {
         $(this).addClass("white");
@@ -241,6 +244,7 @@ export default {
         $(this).removeClass("white");
       }
     });
+
     // Radios
     $("#fancy-radio input[type=radio]").click(function () {
       $("label.radio").removeClass("selected");
@@ -270,13 +274,14 @@ export default {
         return false;
       }
     });
+
     this.getJenis();
   },
 
   methods: {
     async getJenis() {
       let response = await axios.get("/api/jenis_proyek");
-      console.log(response.data);
+      // console.log(response.data);
 
       // cuman memastikan kalau data yang jadi di render
       if (response.status === 200) {
@@ -326,9 +331,18 @@ export default {
 </script>
 
 <style>
+.page-back {
+  width: 100%;
+  height: fit-content;
+  top: -10%;
+  position: absolute;
+  background-image: url("/images/Confetti-Doodles.svg");
+}
+
 .middle {
   width: 660px;
   margin: 0 auto;
+  z-index: 9999;
 }
 
 @media (max-width: 770px) {
@@ -551,6 +565,12 @@ export default {
 .middle .teks-label {
   font-size: 1.5rem;
   font-family: "Poppins-Regular";
+}
+
+@media screen and (max-width: 600px) {
+  .middle .teks-label {
+    font-size: 1.25rem;
+  }
 }
 
 /* star */

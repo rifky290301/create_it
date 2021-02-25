@@ -17,13 +17,13 @@
       </button>
 
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
+        <ul class="navbar-nav mr-auto" v-if="$route.path == '/'">
           <li class="nav-item">
             <a
               style="font-family: Poppins-Light"
               class="nav-link"
               href="#header"
-              >Home</a
+              >Header</a
             >
           </li>
           <li class="nav-item">
@@ -36,11 +36,24 @@
               >Feedback</a
             >
           </li>
-          <!-- <li class="nav-item">
-            <router-link class="nav-link" :to="{ name: 'project.table' }"
-              >Tabel Proyek</router-link
+        </ul>
+        <ul class="navbar-nav mr-auto" v-else>
+          <li class="nav-item">
+            <router-link
+              style="font-family: Poppins-Light"
+              class="nav-link"
+              to="/"
+              >Home</router-link
             >
-          </li> -->
+          </li>
+          <li class="nav-item">
+            <router-link
+              style="font-family: Poppins-Light"
+              class="nav-link"
+              to="/request"
+              >Request</router-link
+            >
+          </li>
         </ul>
       </div>
     </div>

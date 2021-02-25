@@ -73,21 +73,18 @@ export default {
     async getPassword() {
       const Swal = require("sweetalert2");
       Swal.mixin({
-        // input: "text",
         confirmButtonText: "Next &rarr;",
         showCancelButton: true,
         progressSteps: ["1", "2"],
       })
         .queue([
           {
-            // title: "Email",
             title: "Input email address",
             input: "email",
             inputLabel: "Your email address",
             inputPlaceholder: "Enter your email address",
           },
           {
-            // title: "Password",
             title: "Enter your password",
             input: "password",
             inputLabel: "Password",

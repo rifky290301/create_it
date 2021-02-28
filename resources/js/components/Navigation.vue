@@ -1,5 +1,8 @@
 <template>
-  <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
+  <nav
+    id="navbar"
+    class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top"
+  >
     <div class="container">
       <router-link class="navbar-brand" to="/"
         ><img width="40" height="40" :src="'images/global/IG LOGO.svg'"
@@ -85,6 +88,17 @@ export default {
         );
       } // End if
     });
+
+    var prevScrollpos = window.pageYOffset;
+    window.onscroll = function () {
+      var currentScrollPos = window.pageYOffset;
+      if (prevScrollpos >= currentScrollPos) {
+        document.getElementById("navbar").style.top = "0";
+      } else {
+        document.getElementById("navbar").style.top = "-70px";
+      }
+      prevScrollpos = currentScrollPos;
+    };
   },
 
   methods: {
@@ -97,3 +111,9 @@ export default {
   },
 };
 </script>
+
+<style>
+#navbar {
+  transition: top 0.3s;
+}
+</style>

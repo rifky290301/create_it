@@ -65,10 +65,10 @@ export default {
       this.projects = data.data;
     },
 
-    async getUser() {
-      let { data } = await axios.get("/api/projects/read");
-      this.akun = data.data;
-    },
+    // async getUser() {
+    //   let { data } = await axios.get("/api/projects/read");
+    //   this.akun = data.data;
+    // },
 
     async getPassword() {
       const Swal = require("sweetalert2");

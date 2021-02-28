@@ -17,3 +17,19 @@
     font-family: Poppins-Light;
     src: url('../fonts/Poppins/Poppins-Light.ttf');
 }
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    width: 12px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #b5b5bd;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #0c2b6c;
+}

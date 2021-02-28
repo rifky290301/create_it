@@ -312,12 +312,21 @@ export default {
           // notif
           this.successMessage = response.data.message;
 
-          this.$swal({
+          const Swal = require("sweetalert2");
+          const Toast = Swal.mixin({
+            toast: true,
             position: "top-end",
-            icon: "success",
-            title: "Data berhasil dikirim",
             showConfirmButton: false,
-            timer: 1500,
+            timer: 2000,
+            timerProgressBar: true,
+            didOpen: (toast) => {
+              toast.addEventListener("mouseenter", Swal.stopTimer);
+              toast.addEventListener("mouseleave", Swal.resumeTimer);
+            },
+          });
+          Toast.fire({
+            icon: "success",
+            title: "Form berhasil dikirim",
           });
           // Swal.fire("Any fool can use a computer");
         }
@@ -337,6 +346,7 @@ export default {
   top: -10%;
   position: absolute;
   background-image: url("/images/Confetti-Doodles.svg");
+  background-size: 150%;
 }
 
 .middle {

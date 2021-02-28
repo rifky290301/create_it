@@ -1,5 +1,5 @@
 <template>
-  <div class="" style="margin-top: -3rem !important">
+  <div class="" style="margin-top: -6rem !important">
     <!-- Header -->
     <div id="header">
       <!-- <span class="logo icon fa-paper-plane-o"></span> -->
@@ -8,10 +8,9 @@
         <img :src="'images/home/WELCOME VIX_animated.svg'" />
       </h1>
       <p>
-        create IT adalah badan usaha yang melayani pembuatan berbgai produk
-        berbasis IT khusunya dalam bidang multimedia seperti foto dan video dan
-        dibawah naungan langsung oleh Himpunan Mahasiswa Informatika Universitas
-        Jember
+        create IT adalah badan usaha yang melayani pembuatan produk berbasis IT
+        khususnya yang dalam bidang multimedia dibawah naungan divisi
+        Kewirausahaan Himpunan Mahasiswa Informatika Universitas Jember
       </p>
       <ul class="actions mt-5">
         <router-link to="/request" class="button">Request Project</router-link>
@@ -44,7 +43,14 @@
             <h3>
               <span class="highligt">1.</span> Mengisi Form Pengajuan Proyek
             </h3>
-            <p>Form pengajuan dapat diisi di halaman ini</p>
+            <p>
+              Form pengajuan dapat diisi di
+              <span>
+                <router-link to="/request" class="highligt2"
+                  >Halaman ini</router-link
+                ></span
+              >
+            </p>
           </div>
         </section>
         <section class="feature right">
@@ -62,7 +68,7 @@
           <div class="content">
             <h3><span class="highligt">2.</span>Diskusi dengan Klien</h3>
             <p>
-              Client dapat menghubungi admin, lalu mendiskusikan proyek yang
+              Klien dapat menghubungi admin, lalu mendiskusikan proyek yang
               telah diisikan di form pada tahap pertama
             </p>
           </div>
@@ -99,7 +105,7 @@
           <div class="content">
             <h3><span class="highligt">4.</span>Persetujuan Perjanjian</h3>
             <p>
-              Melakukan kesepakatan admin dengan client seperti harga, deadline,
+              Melakukan kesepakatan admin dengan klien seperti harga, deadline,
               dll
             </p>
           </div>
@@ -213,7 +219,12 @@
             ></a>
           </li>
           <li>
-            <a href="#" class="icon"><i class="fab fa-github"></i></a>
+            <a
+              href="https://github.com/createit-hmif"
+              target="_blank"
+              class="icon"
+              ><i class="fab fa-github"></i
+            ></a>
           </li>
           <li>
             <a href="#" class="icon"><i class="fab fa-dribbble"></i></a>
@@ -244,8 +255,6 @@ export default {
       theErrors: [],
     };
   },
-
-  mounted() {},
 
   methods: {
     async store() {
@@ -548,6 +557,7 @@ header.major.last h2 {
   margin: 0;
   line-height: 1.2rem;
   font-size: 1rem;
+  text-decoration: none;
   font-family: "Poppins-Light";
 }
 
@@ -921,6 +931,27 @@ li {
   background-image: linear-gradient(
     0deg,
     #3fa9f5 17.5px,
+    #3fa9f5 0,
+    transparent 0,
+    transparent
+  );
+  cursor: unset;
+}
+.highligt2 {
+  background-image: linear-gradient(
+    0deg,
+    #8bc9f5 10.5px,
+    #8bc9f5 0,
+    transparent 0,
+    transparent
+  );
+  font-family: "Poppins-Medium" !important;
+}
+
+.highligt2:hover {
+  background-image: linear-gradient(
+    0deg,
+    #3fa9f5 10.5px,
     #3fa9f5 0,
     transparent 0,
     transparent

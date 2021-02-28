@@ -2023,6 +2023,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 // tidak jadi
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "navbar",
@@ -2043,6 +2046,19 @@ __webpack_require__.r(__webpack_exports__);
       } // End if
 
     });
+    var prevScrollpos = window.pageYOffset;
+
+    window.onscroll = function () {
+      var currentScrollPos = window.pageYOffset;
+
+      if (prevScrollpos >= currentScrollPos) {
+        document.getElementById("navbar").style.top = "0";
+      } else {
+        document.getElementById("navbar").style.top = "-70px";
+      }
+
+      prevScrollpos = currentScrollPos;
+    };
   },
   methods: {
     logout: function logout() {
@@ -2306,6 +2322,17 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   // components: { VueAos },
   data: function data() {
@@ -2319,7 +2346,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       theErrors: []
     };
   },
-  mounted: function mounted() {},
   methods: {
     store: function store() {
       var _this = this;
@@ -3250,7 +3276,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       var _this2 = this;
 
       return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2() {
-        var response;
+        var response, Swal, Toast;
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
           while (1) {
             switch (_context2.prev = _context2.next) {
@@ -3280,15 +3306,22 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                   _this2.theErrors = []; // notif
 
                   _this2.successMessage = response.data.message;
-
-                  _this2.$swal({
+                  Swal = __webpack_require__(/*! sweetalert2 */ "./node_modules/sweetalert2/dist/sweetalert2.all.js");
+                  Toast = Swal.mixin({
+                    toast: true,
                     position: "top-end",
-                    icon: "success",
-                    title: "Data berhasil dikirim",
                     showConfirmButton: false,
-                    timer: 1500
+                    timer: 2000,
+                    timerProgressBar: true,
+                    didOpen: function didOpen(toast) {
+                      toast.addEventListener("mouseenter", Swal.stopTimer);
+                      toast.addEventListener("mouseleave", Swal.resumeTimer);
+                    }
+                  });
+                  Toast.fire({
+                    icon: "success",
+                    title: "Form berhasil dikirim"
                   }); // Swal.fire("Any fool can use a computer");
-
                 }
 
                 _context2.next = 11;
@@ -3483,40 +3516,18 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         }, _callee);
       }))();
     },
-    getUser: function getUser() {
+    // async getUser() {
+    //   let { data } = await axios.get("/api/projects/read");
+    //   this.akun = data.data;
+    // },
+    getPassword: function getPassword() {
       var _this2 = this;
 
       return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2() {
-        var _yield$axios$get2, data;
-
+        var Swal;
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
           while (1) {
             switch (_context2.prev = _context2.next) {
-              case 0:
-                _context2.next = 2;
-                return axios.get("/api/projects/read");
-
-              case 2:
-                _yield$axios$get2 = _context2.sent;
-                data = _yield$axios$get2.data;
-                _this2.akun = data.data;
-
-              case 5:
-              case "end":
-                return _context2.stop();
-            }
-          }
-        }, _callee2);
-      }))();
-    },
-    getPassword: function getPassword() {
-      var _this3 = this;
-
-      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee3() {
-        var Swal;
-        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee3$(_context3) {
-          while (1) {
-            switch (_context3.prev = _context3.next) {
               case 0:
                 Swal = __webpack_require__(/*! sweetalert2 */ "./node_modules/sweetalert2/dist/sweetalert2.all.js");
                 Swal.mixin({
@@ -3534,21 +3545,21 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                   inputLabel: "Password",
                   inputPlaceholder: "Enter your password"
                 }]).then(function (result) {
-                  if (result.value && result.value[0] == _this3.akun[0] && result.value[1] == _this3.akun[1] // result.value[0] == "1" &&
+                  if (result.value && result.value[0] == _this2.akun[0] && result.value[1] == _this2.akun[1] // result.value[0] == "1" &&
                   // result.value[1] == "2"
                   ) {
-                      _this3.getProjects();
+                      _this2.getProjects();
                     } else {
-                    _this3.getPassword();
+                    _this2.getPassword();
                   }
                 });
 
               case 2:
               case "end":
-                return _context3.stop();
+                return _context2.stop();
             }
           }
-        }, _callee3);
+        }, _callee2);
       }))();
     }
   }
@@ -8134,6 +8145,25 @@ exports.push([module.i, "[data-aos][data-aos][data-aos-duration=\"50\"],body[dat
 
 /***/ }),
 
+/***/ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Navigation.vue?vue&type=style&index=0&lang=css&":
+/*!****************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/Navigation.vue?vue&type=style&index=0&lang=css& ***!
+  \****************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n#navbar {\n  transition: top 0.3s;\n}\n", ""]);
+
+// exports
+
+
+/***/ }),
+
 /***/ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/Home.vue?vue&type=style&index=0&lang=css&":
 /*!*****************************************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/views/Home.vue?vue&type=style&index=0&lang=css& ***!
@@ -8146,7 +8176,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 exports.push([module.i, "@import url(/css/home/responsif.css);", ""]);
 
 // module
-exports.push([module.i, "\n/* body {\r\n  overflow-x: hidden;\r\n} */\n#header {\r\n  background-attachment: scroll, scroll, fixed;\r\n  background: #3fa9f5;\r\n  /* background: linear-gradient(to bottom, #3fa9f5 70%, #f8fafc 30%); */\r\n\r\n  background-image: url(\"/images/home/top-3200.svg\");\r\n  background-position: bottom center, top left, center center;\r\n\r\n  /* background-image: url(\"/images/home/weave.svg\"); */\r\n  /* background-position: center bottom; */\r\n\r\n  background-repeat: repeat-x, repeat, no-repeat;\r\n  background-size: 3200px 460px, auto, cover;\r\n  color: rgba(255, 255, 255, 0.8);\r\n  padding: 10em 0 20em 0;\r\n  position: relative;\r\n  text-align: center;\n}\r\n\r\n/* @media (max-width: 600px) {\r\n  #header {\r\n    padding: 5em 0 10em 0;\r\n    background: linear-gradient(to bottom, #3fa9f5 80%, #f8fafc 20%);\r\n  }\r\n  #header {\r\n    font-size: 0.75rem;\r\n  }\r\n\r\n  #header span img {\r\n    height: 4rem;\r\n  }\r\n}\r\n\r\n#header::before {\r\n  content: \"\";\r\n  position: absolute;\r\n  top: 0;\r\n  right: 0;\r\n  left: 0;\r\n  bottom: 0;\r\n  background-image: url(\"/images/home/weave.svg\");\r\n  background-position: center bottom;\r\n  background-repeat: no-repeat;\r\n} */\n#header:after {\r\n  bottom: 0;\r\n  height: 50px;\n}\n#header a {\r\n  border-bottom-color: rgba(255, 255, 255, 0.35);\r\n  color: rgba(255, 255, 255, 0.8);\n}\n#header a:hover {\r\n  border-bottom-color: transparent;\r\n  color: #3fa9f5;\n}\n#header strong,\r\n#header b {\r\n  color: white;\n}\n#header h1,\r\n#header h2,\r\n#header h3,\r\n#header h4,\r\n#header h5,\r\n#header h6 {\r\n  color: white;\n}\n#header input[type=\"submit\"],\r\n#header input[type=\"reset\"],\r\n#header input[type=\"button\"],\r\n#header .button {\r\n  background: white;\r\n  color: #544d55;\n}\n#header .logo {\r\n  background: #0c2b6c;\r\n  border-radius: 100%;\r\n  color: white;\r\n  cursor: default;\r\n  display: inline-block;\r\n  font-size: 2.25em;\r\n  height: 2.35em;\r\n  line-height: 2.35em;\r\n  margin: 0 0 0.75em 0;\r\n  text-align: center;\r\n  width: 2.35em;\n}\n#header h1 {\r\n  font-size: 2.5em;\r\n  margin: 0;\n}\n#header p {\r\n  font-size: 1.5em;\r\n  line-height: 1.5em;\r\n  margin: 0 10vw;\r\n  font-family: \"Poppins-Regular\";\n}\n#header span img {\r\n  filter: drop-shadow(0 0 0.3rem rgba(0, 0, 0, 0.5));\r\n  -webkit-animation-name: banner3Shake;\r\n  animation-name: banner3Shake;\r\n  -webkit-animation-duration: 10s;\r\n  animation-duration: 10s;\r\n  -webkit-animation-iteration-count: infinite;\r\n  animation-iteration-count: infinite;\r\n  -webkit-animation-timing-function: linear;\r\n  animation-timing-function: linear;\n}\nheader {\r\n  text-align: center;\n}\nheader p {\r\n  position: relative;\r\n  top: -1em;\r\n  color: #888888;\r\n  text-transform: uppercase;\r\n  letter-spacing: 0.075em;\n}\nheader.major {\r\n  margin-bottom: 6em;\r\n  padding: 4em 0;\r\n  position: relative;\n}\nheader.major:before {\r\n  top: 10px;\n}\nheader.major:after {\r\n  bottom: 10px;\n}\nheader.major h2 {\r\n  margin: 0;\r\n  font-family: \"Poppins-Medium\";\n}\nheader.major p {\r\n  top: 0;\r\n  margin: 1.5em 0 0 0;\r\n  padding: 1.5em 1.5em 0 1.5em;\r\n  font-size: 1.5em;\r\n  line-height: 1.75em;\r\n  border-top: solid 1px rgba(224, 224, 224, 0.75);\r\n  display: inline-block;\n}\nheader.major.last {\r\n  border-bottom: 0;\r\n  margin-bottom: 0;\r\n  padding-bottom: 0;\n}\nheader.major.last:after {\r\n  display: none;\n}\nheader.major.last h2 {\r\n  margin-bottom: 1em;\n}\r\n\r\n/* Box */\n.box {\r\n  background: white;\r\n  border: solid 1px rgba(224, 224, 224, 0.75);\r\n  margin-bottom: 6em;\r\n  padding: 3.5em;\n}\n.box.alt {\r\n  background: none;\r\n  border: none;\r\n  padding: 0;\n}\r\n\r\n/* Feature */\n.feature {\r\n  position: relative;\r\n  height: 20em;\n}\n.feature:after {\r\n  clear: both;\r\n  content: \"\";\r\n  display: block;\n}\n.feature h3 {\r\n  text-align: inherit;\n}\n@media (max-width: 480px) {\n.feature h3 {\r\n    font-size: 1.3rem;\n}\n.feature .content {\r\n    padding: 0 1rem !important;\r\n    vertical-align: unset !important;\n}\n}\n.feature .image {\r\n  display: inline-block;\r\n  height: 100%;\r\n  overflow: hidden;\r\n  position: relative;\r\n  width: 50%;\n}\n.feature .image img {\r\n  display: block;\r\n  max-height: 100%;\r\n  max-width: 100%;\r\n  position: absolute;\n}\n.feature:before {\r\n  background: blue;\r\n  content: \"\";\r\n  display: inline-block;\r\n  height: 100%;\r\n  vertical-align: middle;\n}\n.feature .content {\r\n  display: inline-block;\r\n  padding: 3.5em;\r\n  vertical-align: middle;\r\n  width: 48%;\n}\n.feature .content h3 {\r\n  margin-bottom: 0.5em;\r\n  /* font-weight: 600; */\r\n  font-family: \"Poppins-Medium\";\n}\n.feature .content :last-child {\r\n  margin: 0;\r\n  line-height: 1.2rem;\r\n  font-size: 1rem;\r\n  font-family: \"Poppins-Light\";\n}\n.feature.left {\r\n  text-align: left;\n}\n.feature.left .image {\r\n  float: left;\n}\n.feature.left .image img {\r\n  right: 0;\r\n  top: 0;\n}\n.feature.left .content {\r\n  padding-right: 0;\n}\n.feature.right {\r\n  text-align: right;\n}\n.feature.right .image {\r\n  float: right;\n}\n.feature.right .image img {\r\n  left: 0;\r\n  top: 0;\n}\n.feature.right .content {\r\n  padding-left: 0;\n}\n.feature.long .content {\r\n  padding-top: 0;\n}\r\n\r\n/* Footer */\n#footer {\r\n  background-attachment: scroll;\r\n  background-color: #3fa9f5;\r\n  background-image: url(\"/images/home/bottom-3200.svg\");\r\n  /* background-image: url(\"images/bottom-1600.svg\"); */\r\n  background-position: top center;\r\n  background-repeat: repeat-x;\r\n  background-size: 3200px 460px;\r\n  color: rgba(255, 255, 255, 0.8);\r\n\r\n  padding: calc(460px + 6em) 0 10em 0;\r\n  position: relative;\r\n  text-align: center;\n}\n#footer a {\r\n  color: white;\n}\n#footer strong,\r\n#footer b {\r\n  color: white;\n}\n#footer h1,\r\n#footer h2,\r\n#footer h3,\r\n#footer h4,\r\n#footer h5,\r\n#footer h6 {\r\n  color: white;\n}\n#footer header p {\r\n  color: rgba(255, 255, 255, 0.5);\n}\n#footer input[type=\"submit\"],\r\n#footer input[type=\"reset\"],\r\n#footer input[type=\"button\"],\r\n#footer .button,\r\n#header .button {\r\n  background: white;\r\n  box-shadow: inset 0 0 0 1px white;\r\n  color: #3fa9f5;\n}\n#footer input[type=\"submit\"]:hover,\r\n#footer input[type=\"reset\"]:hover,\r\n#footer input[type=\"button\"]:hover,\r\n#header .button:hover,\r\n#footer .button:hover {\r\n  background: rgba(224, 224, 224, 0.15);\r\n  color: white;\n}\n#footer input[type=\"text\"]:focus,\r\n#footer input[type=\"password\"]:focus,\r\n#footer input[type=\"email\"]:focus,\r\n#footer select:focus,\r\n#footer textarea:focus {\r\n  border-color: white;\n}\ninput[type=\"text\"]:focus,\r\ninput[type=\"password\"]:focus,\r\ninput[type=\"email\"]:focus,\r\nselect:focus,\r\ntextarea:focus {\r\n  background: rgba(224, 224, 224, 0.15);\r\n  border-color: #3fa9f5;\n}\n::-webkit-input-placeholder {\r\n  color: inherit;\r\n  opacity: 0.5;\r\n  position: relative;\r\n  top: 3px;\n}\n:-moz-placeholder {\r\n  color: inherit;\r\n  opacity: 0.5;\n}\n::-moz-placeholder {\r\n  color: inherit;\r\n  opacity: 0.5;\n}\n:-ms-input-placeholder {\r\n  color: inherit;\r\n  opacity: 0.5;\n}\n#footer .formerize-placeholder {\r\n  color: rgba(255, 255, 255, 0.3) !important;\n}\n#footer form {\r\n  margin: 3em 0;\n}\n#footer .copyright {\r\n  color: rgba(255, 255, 255, 0.5);\r\n  font-size: 0.8em;\r\n  line-height: 1em;\r\n  margin: 3em 0 0 0;\r\n  padding: unset;\n}\n#footer .copyright li {\r\n  border-left: dotted 1px;\r\n  display: inline-block;\r\n  margin-left: 1em;\r\n  padding-left: 1em;\n}\n#footer .copyright li:first-child {\r\n  padding: 0;\r\n  margin: 0;\r\n  border: 0;\n}\n#footer .copyright li a,\r\n#footer .copyright li span {\r\n  color: inherit;\n}\n#footer .copyright li a:hover,\r\n#footer .copyright li span:hover {\r\n  color: white;\n}\n.containerr {\r\n  margin-left: auto;\r\n  margin-right: auto;\r\n  width: 48em;\n}\n@media (max-width: 780px) {\n.containerr {\r\n    width: 80%;\n}\r\n  /* .input100 {\r\n    flex-direction: column !important;\r\n  } */\ninput[type=\"email\"],\r\n  input[type=\"text\"] {\r\n    width: 100%;\n}\n}\r\n\r\n/* Button */\n.button {\r\n  -moz-appearance: none;\r\n  -webkit-appearance: none;\r\n  -o-appearance: none;\r\n  appearance: none;\r\n  transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out;\r\n  background: #0c2b6c;\r\n  border-radius: 4px;\r\n  border: 0;\r\n  color: white;\r\n  cursor: pointer;\r\n  display: inline-block;\r\n  font-size: 0.9em;\r\n  font-weight: 700;\r\n  letter-spacing: 0.125em;\r\n  line-height: 3.25em;\r\n  min-width: 15em;\r\n  padding: 0 1.5em;\r\n  text-align: center;\r\n  text-decoration: none;\r\n  text-transform: uppercase;\n}\ninput[type=\"email\"],\r\ninput[type=\"text\"],\r\ntextarea {\r\n  transition: background-color 0.2s ease-in-out;\r\n  background: none;\r\n  border-radius: 4px;\r\n  border: 0;\r\n  border: solid 1px rgba(224, 224, 224, 0.75);\r\n  color: inherit;\r\n  display: block;\r\n  outline: 0;\r\n  padding: 0.75em;\r\n  text-decoration: none;\r\n  width: 100%;\r\n  opacity: 1;\n}\ntextarea {\r\n  height: 10rem;\n}\n.input-feedback {\r\n  width: 48%;\n}\n.area-text {\r\n  width: 100%;\n}\n.button:hover {\r\n  background: #264a98;\r\n  color: white;\r\n  text-decoration: none;\n}\nul.actions {\r\n  cursor: default;\r\n  text-align: center;\r\n  padding: 0 !important;\n}\r\n\r\n/* Icon */\n.icon {\r\n  text-decoration: none;\r\n  border-bottom: none;\r\n  position: relative;\n}\n.icon:before {\r\n  -moz-osx-font-smoothing: grayscale;\r\n  -webkit-font-smoothing: antialiased;\r\n  font-family: FontAwesome;\r\n  font-style: normal;\r\n  font-weight: normal;\r\n  text-transform: none !important;\n}\n.icon > .label {\r\n  display: none;\n}\nul.icons {\r\n  cursor: default;\r\n  padding-left: unset;\n}\nul.icons li {\r\n  display: inline-block;\r\n  font-size: 1.25em;\r\n  line-height: 1em;\r\n  padding-left: 0.5em;\n}\nul.icons li:first-child {\r\n  padding-left: 0;\n}\nul.icons li a,\r\nul.icons li span {\r\n  transition: background-color 0.2s ease-in-out;\r\n  border-radius: 100%;\r\n  border: solid 1px rgba(224, 224, 224, 0.75);\r\n  display: inline-block;\r\n  height: 2em;\r\n  line-height: 2em;\r\n  text-align: center;\r\n  width: 2em;\n}\nul.icons li a:hover,\r\nul.icons li span:hover {\r\n  background: rgba(224, 224, 224, 0.15);\n}\nul.actions {\r\n  cursor: default;\r\n  text-align: center;\n}\nul.actions:last-child {\r\n  margin-bottom: 0;\n}\nul.actions li {\r\n  display: inline-block;\r\n  padding: 0 0 0 1.5em;\n}\nul.actions li:first-child {\r\n  padding: 0;\n}\nul.actions.vertical li {\r\n  display: block;\r\n  padding: 1.5em 0 0 0;\n}\nul.actions.vertical li:first-child {\r\n  padding: 0;\n}\r\n\r\n/* GLOBAL */\na {\r\n  text-decoration: none;\n}\nli {\r\n  list-style: none;\n}\r\n\r\n/* higlight */\n.highligt {\r\n  background-image: linear-gradient(\r\n    0deg,\r\n    #8bc9f5 17.5px,\r\n    #8bc9f5 0,\r\n    transparent 0,\r\n    transparent\r\n  );\n}\n.highligt:hover {\r\n  background-image: linear-gradient(\r\n    0deg,\r\n    #3fa9f5 17.5px,\r\n    #3fa9f5 0,\r\n    transparent 0,\r\n    transparent\r\n  );\n}\n.feature .content .highligt {\r\n  font-family: \"Poppins-Bold\";\r\n  font-size: 2rem;\n}\r\n", ""]);
+exports.push([module.i, "\n/* body {\r\n  overflow-x: hidden;\r\n} */\n#header {\r\n  background-attachment: scroll, scroll, fixed;\r\n  background: #3fa9f5;\r\n  /* background: linear-gradient(to bottom, #3fa9f5 70%, #f8fafc 30%); */\r\n\r\n  background-image: url(\"/images/home/top-3200.svg\");\r\n  background-position: bottom center, top left, center center;\r\n\r\n  /* background-image: url(\"/images/home/weave.svg\"); */\r\n  /* background-position: center bottom; */\r\n\r\n  background-repeat: repeat-x, repeat, no-repeat;\r\n  background-size: 3200px 460px, auto, cover;\r\n  color: rgba(255, 255, 255, 0.8);\r\n  padding: 10em 0 20em 0;\r\n  position: relative;\r\n  text-align: center;\n}\r\n\r\n/* @media (max-width: 600px) {\r\n  #header {\r\n    padding: 5em 0 10em 0;\r\n    background: linear-gradient(to bottom, #3fa9f5 80%, #f8fafc 20%);\r\n  }\r\n  #header {\r\n    font-size: 0.75rem;\r\n  }\r\n\r\n  #header span img {\r\n    height: 4rem;\r\n  }\r\n}\r\n\r\n#header::before {\r\n  content: \"\";\r\n  position: absolute;\r\n  top: 0;\r\n  right: 0;\r\n  left: 0;\r\n  bottom: 0;\r\n  background-image: url(\"/images/home/weave.svg\");\r\n  background-position: center bottom;\r\n  background-repeat: no-repeat;\r\n} */\n#header:after {\r\n  bottom: 0;\r\n  height: 50px;\n}\n#header a {\r\n  border-bottom-color: rgba(255, 255, 255, 0.35);\r\n  color: rgba(255, 255, 255, 0.8);\n}\n#header a:hover {\r\n  border-bottom-color: transparent;\r\n  color: #3fa9f5;\n}\n#header strong,\r\n#header b {\r\n  color: white;\n}\n#header h1,\r\n#header h2,\r\n#header h3,\r\n#header h4,\r\n#header h5,\r\n#header h6 {\r\n  color: white;\n}\n#header input[type=\"submit\"],\r\n#header input[type=\"reset\"],\r\n#header input[type=\"button\"],\r\n#header .button {\r\n  background: white;\r\n  color: #544d55;\n}\n#header .logo {\r\n  background: #0c2b6c;\r\n  border-radius: 100%;\r\n  color: white;\r\n  cursor: default;\r\n  display: inline-block;\r\n  font-size: 2.25em;\r\n  height: 2.35em;\r\n  line-height: 2.35em;\r\n  margin: 0 0 0.75em 0;\r\n  text-align: center;\r\n  width: 2.35em;\n}\n#header h1 {\r\n  font-size: 2.5em;\r\n  margin: 0;\n}\n#header p {\r\n  font-size: 1.5em;\r\n  line-height: 1.5em;\r\n  margin: 0 10vw;\r\n  font-family: \"Poppins-Regular\";\n}\n#header span img {\r\n  filter: drop-shadow(0 0 0.3rem rgba(0, 0, 0, 0.5));\r\n  -webkit-animation-name: banner3Shake;\r\n  animation-name: banner3Shake;\r\n  -webkit-animation-duration: 10s;\r\n  animation-duration: 10s;\r\n  -webkit-animation-iteration-count: infinite;\r\n  animation-iteration-count: infinite;\r\n  -webkit-animation-timing-function: linear;\r\n  animation-timing-function: linear;\n}\nheader {\r\n  text-align: center;\n}\nheader p {\r\n  position: relative;\r\n  top: -1em;\r\n  color: #888888;\r\n  text-transform: uppercase;\r\n  letter-spacing: 0.075em;\n}\nheader.major {\r\n  margin-bottom: 6em;\r\n  padding: 4em 0;\r\n  position: relative;\n}\nheader.major:before {\r\n  top: 10px;\n}\nheader.major:after {\r\n  bottom: 10px;\n}\nheader.major h2 {\r\n  margin: 0;\r\n  font-family: \"Poppins-Medium\";\n}\nheader.major p {\r\n  top: 0;\r\n  margin: 1.5em 0 0 0;\r\n  padding: 1.5em 1.5em 0 1.5em;\r\n  font-size: 1.5em;\r\n  line-height: 1.75em;\r\n  border-top: solid 1px rgba(224, 224, 224, 0.75);\r\n  display: inline-block;\n}\nheader.major.last {\r\n  border-bottom: 0;\r\n  margin-bottom: 0;\r\n  padding-bottom: 0;\n}\nheader.major.last:after {\r\n  display: none;\n}\nheader.major.last h2 {\r\n  margin-bottom: 1em;\n}\r\n\r\n/* Box */\n.box {\r\n  background: white;\r\n  border: solid 1px rgba(224, 224, 224, 0.75);\r\n  margin-bottom: 6em;\r\n  padding: 3.5em;\n}\n.box.alt {\r\n  background: none;\r\n  border: none;\r\n  padding: 0;\n}\r\n\r\n/* Feature */\n.feature {\r\n  position: relative;\r\n  height: 20em;\n}\n.feature:after {\r\n  clear: both;\r\n  content: \"\";\r\n  display: block;\n}\n.feature h3 {\r\n  text-align: inherit;\n}\n@media (max-width: 480px) {\n.feature h3 {\r\n    font-size: 1.3rem;\n}\n.feature .content {\r\n    padding: 0 1rem !important;\r\n    vertical-align: unset !important;\n}\n}\n.feature .image {\r\n  display: inline-block;\r\n  height: 100%;\r\n  overflow: hidden;\r\n  position: relative;\r\n  width: 50%;\n}\n.feature .image img {\r\n  display: block;\r\n  max-height: 100%;\r\n  max-width: 100%;\r\n  position: absolute;\n}\n.feature:before {\r\n  background: blue;\r\n  content: \"\";\r\n  display: inline-block;\r\n  height: 100%;\r\n  vertical-align: middle;\n}\n.feature .content {\r\n  display: inline-block;\r\n  padding: 3.5em;\r\n  vertical-align: middle;\r\n  width: 48%;\n}\n.feature .content h3 {\r\n  margin-bottom: 0.5em;\r\n  /* font-weight: 600; */\r\n  font-family: \"Poppins-Medium\";\n}\n.feature .content :last-child {\r\n  margin: 0;\r\n  line-height: 1.2rem;\r\n  font-size: 1rem;\r\n  text-decoration: none;\r\n  font-family: \"Poppins-Light\";\n}\n.feature.left {\r\n  text-align: left;\n}\n.feature.left .image {\r\n  float: left;\n}\n.feature.left .image img {\r\n  right: 0;\r\n  top: 0;\n}\n.feature.left .content {\r\n  padding-right: 0;\n}\n.feature.right {\r\n  text-align: right;\n}\n.feature.right .image {\r\n  float: right;\n}\n.feature.right .image img {\r\n  left: 0;\r\n  top: 0;\n}\n.feature.right .content {\r\n  padding-left: 0;\n}\n.feature.long .content {\r\n  padding-top: 0;\n}\r\n\r\n/* Footer */\n#footer {\r\n  background-attachment: scroll;\r\n  background-color: #3fa9f5;\r\n  background-image: url(\"/images/home/bottom-3200.svg\");\r\n  /* background-image: url(\"images/bottom-1600.svg\"); */\r\n  background-position: top center;\r\n  background-repeat: repeat-x;\r\n  background-size: 3200px 460px;\r\n  color: rgba(255, 255, 255, 0.8);\r\n\r\n  padding: calc(460px + 6em) 0 10em 0;\r\n  position: relative;\r\n  text-align: center;\n}\n#footer a {\r\n  color: white;\n}\n#footer strong,\r\n#footer b {\r\n  color: white;\n}\n#footer h1,\r\n#footer h2,\r\n#footer h3,\r\n#footer h4,\r\n#footer h5,\r\n#footer h6 {\r\n  color: white;\n}\n#footer header p {\r\n  color: rgba(255, 255, 255, 0.5);\n}\n#footer input[type=\"submit\"],\r\n#footer input[type=\"reset\"],\r\n#footer input[type=\"button\"],\r\n#footer .button,\r\n#header .button {\r\n  background: white;\r\n  box-shadow: inset 0 0 0 1px white;\r\n  color: #3fa9f5;\n}\n#footer input[type=\"submit\"]:hover,\r\n#footer input[type=\"reset\"]:hover,\r\n#footer input[type=\"button\"]:hover,\r\n#header .button:hover,\r\n#footer .button:hover {\r\n  background: rgba(224, 224, 224, 0.15);\r\n  color: white;\n}\n#footer input[type=\"text\"]:focus,\r\n#footer input[type=\"password\"]:focus,\r\n#footer input[type=\"email\"]:focus,\r\n#footer select:focus,\r\n#footer textarea:focus {\r\n  border-color: white;\n}\ninput[type=\"text\"]:focus,\r\ninput[type=\"password\"]:focus,\r\ninput[type=\"email\"]:focus,\r\nselect:focus,\r\ntextarea:focus {\r\n  background: rgba(224, 224, 224, 0.15);\r\n  border-color: #3fa9f5;\n}\n::-webkit-input-placeholder {\r\n  color: inherit;\r\n  opacity: 0.5;\r\n  position: relative;\r\n  top: 3px;\n}\n:-moz-placeholder {\r\n  color: inherit;\r\n  opacity: 0.5;\n}\n::-moz-placeholder {\r\n  color: inherit;\r\n  opacity: 0.5;\n}\n:-ms-input-placeholder {\r\n  color: inherit;\r\n  opacity: 0.5;\n}\n#footer .formerize-placeholder {\r\n  color: rgba(255, 255, 255, 0.3) !important;\n}\n#footer form {\r\n  margin: 3em 0;\n}\n#footer .copyright {\r\n  color: rgba(255, 255, 255, 0.5);\r\n  font-size: 0.8em;\r\n  line-height: 1em;\r\n  margin: 3em 0 0 0;\r\n  padding: unset;\n}\n#footer .copyright li {\r\n  border-left: dotted 1px;\r\n  display: inline-block;\r\n  margin-left: 1em;\r\n  padding-left: 1em;\n}\n#footer .copyright li:first-child {\r\n  padding: 0;\r\n  margin: 0;\r\n  border: 0;\n}\n#footer .copyright li a,\r\n#footer .copyright li span {\r\n  color: inherit;\n}\n#footer .copyright li a:hover,\r\n#footer .copyright li span:hover {\r\n  color: white;\n}\n.containerr {\r\n  margin-left: auto;\r\n  margin-right: auto;\r\n  width: 48em;\n}\n@media (max-width: 780px) {\n.containerr {\r\n    width: 80%;\n}\r\n  /* .input100 {\r\n    flex-direction: column !important;\r\n  } */\ninput[type=\"email\"],\r\n  input[type=\"text\"] {\r\n    width: 100%;\n}\n}\r\n\r\n/* Button */\n.button {\r\n  -moz-appearance: none;\r\n  -webkit-appearance: none;\r\n  -o-appearance: none;\r\n  appearance: none;\r\n  transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out;\r\n  background: #0c2b6c;\r\n  border-radius: 4px;\r\n  border: 0;\r\n  color: white;\r\n  cursor: pointer;\r\n  display: inline-block;\r\n  font-size: 0.9em;\r\n  font-weight: 700;\r\n  letter-spacing: 0.125em;\r\n  line-height: 3.25em;\r\n  min-width: 15em;\r\n  padding: 0 1.5em;\r\n  text-align: center;\r\n  text-decoration: none;\r\n  text-transform: uppercase;\n}\ninput[type=\"email\"],\r\ninput[type=\"text\"],\r\ntextarea {\r\n  transition: background-color 0.2s ease-in-out;\r\n  background: none;\r\n  border-radius: 4px;\r\n  border: 0;\r\n  border: solid 1px rgba(224, 224, 224, 0.75);\r\n  color: inherit;\r\n  display: block;\r\n  outline: 0;\r\n  padding: 0.75em;\r\n  text-decoration: none;\r\n  width: 100%;\r\n  opacity: 1;\n}\ntextarea {\r\n  height: 10rem;\n}\n.input-feedback {\r\n  width: 48%;\n}\n.area-text {\r\n  width: 100%;\n}\n.button:hover {\r\n  background: #264a98;\r\n  color: white;\r\n  text-decoration: none;\n}\nul.actions {\r\n  cursor: default;\r\n  text-align: center;\r\n  padding: 0 !important;\n}\r\n\r\n/* Icon */\n.icon {\r\n  text-decoration: none;\r\n  border-bottom: none;\r\n  position: relative;\n}\n.icon:before {\r\n  -moz-osx-font-smoothing: grayscale;\r\n  -webkit-font-smoothing: antialiased;\r\n  font-family: FontAwesome;\r\n  font-style: normal;\r\n  font-weight: normal;\r\n  text-transform: none !important;\n}\n.icon > .label {\r\n  display: none;\n}\nul.icons {\r\n  cursor: default;\r\n  padding-left: unset;\n}\nul.icons li {\r\n  display: inline-block;\r\n  font-size: 1.25em;\r\n  line-height: 1em;\r\n  padding-left: 0.5em;\n}\nul.icons li:first-child {\r\n  padding-left: 0;\n}\nul.icons li a,\r\nul.icons li span {\r\n  transition: background-color 0.2s ease-in-out;\r\n  border-radius: 100%;\r\n  border: solid 1px rgba(224, 224, 224, 0.75);\r\n  display: inline-block;\r\n  height: 2em;\r\n  line-height: 2em;\r\n  text-align: center;\r\n  width: 2em;\n}\nul.icons li a:hover,\r\nul.icons li span:hover {\r\n  background: rgba(224, 224, 224, 0.15);\n}\nul.actions {\r\n  cursor: default;\r\n  text-align: center;\n}\nul.actions:last-child {\r\n  margin-bottom: 0;\n}\nul.actions li {\r\n  display: inline-block;\r\n  padding: 0 0 0 1.5em;\n}\nul.actions li:first-child {\r\n  padding: 0;\n}\nul.actions.vertical li {\r\n  display: block;\r\n  padding: 1.5em 0 0 0;\n}\nul.actions.vertical li:first-child {\r\n  padding: 0;\n}\r\n\r\n/* GLOBAL */\na {\r\n  text-decoration: none;\n}\nli {\r\n  list-style: none;\n}\r\n\r\n/* higlight */\n.highligt {\r\n  background-image: linear-gradient(\r\n    0deg,\r\n    #8bc9f5 17.5px,\r\n    #8bc9f5 0,\r\n    transparent 0,\r\n    transparent\r\n  );\n}\n.highligt:hover {\r\n  background-image: linear-gradient(\r\n    0deg,\r\n    #3fa9f5 17.5px,\r\n    #3fa9f5 0,\r\n    transparent 0,\r\n    transparent\r\n  );\r\n  cursor: unset;\n}\n.highligt2 {\r\n  background-image: linear-gradient(\r\n    0deg,\r\n    #8bc9f5 10.5px,\r\n    #8bc9f5 0,\r\n    transparent 0,\r\n    transparent\r\n  );\r\n  font-family: \"Poppins-Medium\" !important;\n}\n.highligt2:hover {\r\n  background-image: linear-gradient(\r\n    0deg,\r\n    #3fa9f5 10.5px,\r\n    #3fa9f5 0,\r\n    transparent 0,\r\n    transparent\r\n  );\n}\n.feature .content .highligt {\r\n  font-family: \"Poppins-Bold\";\r\n  font-size: 2rem;\n}\r\n", ""]);
 
 // exports
 
@@ -8222,7 +8252,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\n.page-back {\r\n  width: 100%;\r\n  height: -webkit-fit-content;\r\n  height: -moz-fit-content;\r\n  height: fit-content;\r\n  top: -10%;\r\n  position: absolute;\r\n  background-image: url(\"/images/Confetti-Doodles.svg\");\n}\n.middle {\r\n  width: 660px;\r\n  margin: 0 auto;\r\n  z-index: 9999;\n}\n@media (max-width: 770px) {\n.middle {\r\n    width: 90%;\n}\n}\n.middle h1 {\r\n  margin: 50px 0 0 0;\r\n  color: #3fa9f5;\r\n  /* font-family: \"Indie Flower\", cursive; */\r\n  font-size: 48px;\r\n  font-weight: normal;\r\n  text-align: center;\r\n  font-family: \"Poppins-Bold\";\n}\n@media (max-width: 475px) {\n.middle h1 {\r\n    font-size: 2rem;\n}\n}\n.middle #fancy-inputs {\r\n  float: left;\r\n  width: 100%;\r\n  margin: 0 0 50px 0;\n}\n.middle #fancy-inputs label.input {\r\n  float: left;\r\n  width: 100%;\r\n  height: 42px;\r\n  margin: 50px 0 0 0;\r\n  position: relative;\r\n  clear: both;\r\n  margin: 8rem 0;\n}\n.middle #fancy-inputs label.input span {\r\n  width: 100%;\r\n  height: 40px;\r\n  line-height: 40px;\r\n  position: absolute;\r\n  left: 0;\r\n  cursor: text;\n}\n.middle #fancy-inputs label.input span span {\r\n  position: absolute;\r\n  top: 0;\r\n  z-index: 1;\r\n  /* font-family: \"Indie Flower\", cursive; */\r\n  font-size: 22px;\r\n  color: #3fa9f5;\r\n  text-indent: 10px;\r\n  transition: 0.3s;\r\n  -webkit-transition: 0.3s;\r\n  -moz-transition: 0.3s;\n}\n.middle #fancy-inputs label.input span:before {\r\n  content: \"\";\r\n  width: 0%;\r\n  height: 3px;\r\n  background-color: #0c2b6c;\r\n  position: absolute;\r\n  bottom: 0;\r\n  left: 0;\r\n  z-index: 99;\r\n  transition: 0.3s;\r\n  -webkit-transition: 0.3s;\r\n  -moz-transition: 0.3s;\n}\n.middle #fancy-inputs label.input span:after {\r\n  content: \"\";\r\n  width: 0%;\r\n  height: 3px;\r\n  background-color: #0c2b6c;\r\n  position: absolute;\r\n  bottom: 0;\r\n  right: 0;\r\n  z-index: 99;\r\n  transition: 0.3s;\r\n  -webkit-transition: 0.3s;\r\n  -moz-transition: 0.3s;\n}\n.middle #fancy-inputs input,\r\n.middle #fancy-inputs select {\r\n  float: left;\r\n  width: 100%;\r\n  height: 40px;\r\n  padding: 0 10px;\r\n  border: 0;\r\n  border-bottom: 3px solid #3fa9f5;\r\n  background-color: transparent;\r\n  color: #3fa9f5;\r\n  /* font-family: \"Indie Flower\", cursive; */\r\n  font-size: 22px;\r\n  position: relative;\r\n  z-index: 99;\r\n  font-family: \"Poppins-Regular\";\n}\n.middle #fancy-inputs input:focus {\r\n  outline: 0;\n}\n.middle #fancy-inputs input.white {\r\n  background-color: #f8fafc;\n}\n.middle #fancy-inputs input:focus + span span {\r\n  cursor: initial;\r\n  position: absolute;\r\n  top: -35px;\r\n  color: #0c2b6c;\n}\n.middle #fancy-inputs input:focus + span:before {\r\n  width: 50%;\n}\n.middle #fancy-inputs input:focus + span:after {\r\n  width: 50%;\n}\n.middle #fancy-inputs span.fixed span {\r\n  top: -35px;\n}\n.middle #fancy-radio {\r\n  float: left;\r\n  width: 100%;\r\n  margin: 0 0 30px 0;\n}\n.middle #fancy-radio label.radio {\r\n  float: left;\r\n  width: auto;\r\n  line-height: 30px;\r\n  margin: 0 0 10px 0;\r\n  color: #3fa9f5;\r\n  /* font-family: \"Indie Flower\", cursive; */\r\n  font-size: 22px;\r\n  cursor: pointer;\r\n  position: relative;\r\n  clear: both;\r\n  transition: 0.3s;\r\n  -webkit-transition: 0.3s;\r\n  -moz-transition: 0.3s;\n}\n.middle #fancy-radio label.radio:before {\r\n  content: \"\";\r\n  float: left;\r\n  width: 29px;\r\n  height: 29px;\r\n  margin: 0 5px 0 0;\r\n  background-color: #3fa9f5;\r\n  border-radius: 100%;\r\n  font-size: 22px;\r\n  text-indent: 40px;\n}\n.middle #fancy-radio label.radio:after {\r\n  content: \"\";\r\n  width: 5px;\r\n  height: 5px;\r\n  background-color: #0c2b6c;\r\n  border-radius: 100%;\r\n  position: absolute;\r\n  top: 12px;\r\n  left: 12px;\r\n  opacity: 0;\r\n  transition: 0.2s;\r\n  -webkit-transition: 0.2s;\r\n  -moz-transition: 0.2s;\n}\n.middle #fancy-radio label.radio.selected:after {\r\n  width: 15.5px;\r\n  height: 15.5px;\r\n  top: 7px;\r\n  left: 7px;\r\n  opacity: 1;\n}\n.middle #fancy-radio label.radio:hover {\r\n  text-indent: 5px;\n}\n.middle .btn {\r\n  float: left;\r\n  width: 100%;\r\n  height: 50px;\r\n  line-height: 50px;\r\n  margin: 0 0 50px 0;\r\n  background-color: #0c2b6c;\r\n  color: white;\r\n  /* font-family: \"Indie Flower\", cursive; */\r\n  font-size: 22px;\r\n  text-decoration: none;\r\n  text-align: center;\r\n  transition: 0.3s;\r\n  -webkit-transition: 0.3s;\r\n  -moz-transition: 0.3s;\n}\n.middle .btn:hover {\r\n  background-color: #3fa9f5;\r\n  /* background: repeat padding-box border-box 0% 0% / auto auto scroll linear-gradient(229deg, #b76bdd 0%, rgba(29, 44, 243, 0) 100%), #3d9797; */\n}\r\n\r\n/* teks */\n.middle .teks-label {\r\n  font-size: 1.5rem;\r\n  font-family: \"Poppins-Regular\";\n}\n@media screen and (max-width: 600px) {\n.middle .teks-label {\r\n    font-size: 1.25rem;\n}\n}\r\n\r\n/* star */\n.middle .required-star {\r\n  font-size: 24px;\r\n  color: #d12323;\r\n  float: right;\r\n  transform: translateY(-40px);\n}\n.middle .required-starr {\r\n  font-size: 24px;\r\n  color: #d12323;\r\n  /* float: left; */\n}\r\n", ""]);
+exports.push([module.i, "\n.page-back {\r\n  width: 100%;\r\n  height: -webkit-fit-content;\r\n  height: -moz-fit-content;\r\n  height: fit-content;\r\n  top: -10%;\r\n  position: absolute;\r\n  background-image: url(\"/images/Confetti-Doodles.svg\");\r\n  background-size: 150%;\n}\n.middle {\r\n  width: 660px;\r\n  margin: 0 auto;\r\n  z-index: 9999;\n}\n@media (max-width: 770px) {\n.middle {\r\n    width: 90%;\n}\n}\n.middle h1 {\r\n  margin: 50px 0 0 0;\r\n  color: #3fa9f5;\r\n  /* font-family: \"Indie Flower\", cursive; */\r\n  font-size: 48px;\r\n  font-weight: normal;\r\n  text-align: center;\r\n  font-family: \"Poppins-Bold\";\n}\n@media (max-width: 475px) {\n.middle h1 {\r\n    font-size: 2rem;\n}\n}\n.middle #fancy-inputs {\r\n  float: left;\r\n  width: 100%;\r\n  margin: 0 0 50px 0;\n}\n.middle #fancy-inputs label.input {\r\n  float: left;\r\n  width: 100%;\r\n  height: 42px;\r\n  margin: 50px 0 0 0;\r\n  position: relative;\r\n  clear: both;\r\n  margin: 8rem 0;\n}\n.middle #fancy-inputs label.input span {\r\n  width: 100%;\r\n  height: 40px;\r\n  line-height: 40px;\r\n  position: absolute;\r\n  left: 0;\r\n  cursor: text;\n}\n.middle #fancy-inputs label.input span span {\r\n  position: absolute;\r\n  top: 0;\r\n  z-index: 1;\r\n  /* font-family: \"Indie Flower\", cursive; */\r\n  font-size: 22px;\r\n  color: #3fa9f5;\r\n  text-indent: 10px;\r\n  transition: 0.3s;\r\n  -webkit-transition: 0.3s;\r\n  -moz-transition: 0.3s;\n}\n.middle #fancy-inputs label.input span:before {\r\n  content: \"\";\r\n  width: 0%;\r\n  height: 3px;\r\n  background-color: #0c2b6c;\r\n  position: absolute;\r\n  bottom: 0;\r\n  left: 0;\r\n  z-index: 99;\r\n  transition: 0.3s;\r\n  -webkit-transition: 0.3s;\r\n  -moz-transition: 0.3s;\n}\n.middle #fancy-inputs label.input span:after {\r\n  content: \"\";\r\n  width: 0%;\r\n  height: 3px;\r\n  background-color: #0c2b6c;\r\n  position: absolute;\r\n  bottom: 0;\r\n  right: 0;\r\n  z-index: 99;\r\n  transition: 0.3s;\r\n  -webkit-transition: 0.3s;\r\n  -moz-transition: 0.3s;\n}\n.middle #fancy-inputs input,\r\n.middle #fancy-inputs select {\r\n  float: left;\r\n  width: 100%;\r\n  height: 40px;\r\n  padding: 0 10px;\r\n  border: 0;\r\n  border-bottom: 3px solid #3fa9f5;\r\n  background-color: transparent;\r\n  color: #3fa9f5;\r\n  /* font-family: \"Indie Flower\", cursive; */\r\n  font-size: 22px;\r\n  position: relative;\r\n  z-index: 99;\r\n  font-family: \"Poppins-Regular\";\n}\n.middle #fancy-inputs input:focus {\r\n  outline: 0;\n}\n.middle #fancy-inputs input.white {\r\n  background-color: #f8fafc;\n}\n.middle #fancy-inputs input:focus + span span {\r\n  cursor: initial;\r\n  position: absolute;\r\n  top: -35px;\r\n  color: #0c2b6c;\n}\n.middle #fancy-inputs input:focus + span:before {\r\n  width: 50%;\n}\n.middle #fancy-inputs input:focus + span:after {\r\n  width: 50%;\n}\n.middle #fancy-inputs span.fixed span {\r\n  top: -35px;\n}\n.middle #fancy-radio {\r\n  float: left;\r\n  width: 100%;\r\n  margin: 0 0 30px 0;\n}\n.middle #fancy-radio label.radio {\r\n  float: left;\r\n  width: auto;\r\n  line-height: 30px;\r\n  margin: 0 0 10px 0;\r\n  color: #3fa9f5;\r\n  /* font-family: \"Indie Flower\", cursive; */\r\n  font-size: 22px;\r\n  cursor: pointer;\r\n  position: relative;\r\n  clear: both;\r\n  transition: 0.3s;\r\n  -webkit-transition: 0.3s;\r\n  -moz-transition: 0.3s;\n}\n.middle #fancy-radio label.radio:before {\r\n  content: \"\";\r\n  float: left;\r\n  width: 29px;\r\n  height: 29px;\r\n  margin: 0 5px 0 0;\r\n  background-color: #3fa9f5;\r\n  border-radius: 100%;\r\n  font-size: 22px;\r\n  text-indent: 40px;\n}\n.middle #fancy-radio label.radio:after {\r\n  content: \"\";\r\n  width: 5px;\r\n  height: 5px;\r\n  background-color: #0c2b6c;\r\n  border-radius: 100%;\r\n  position: absolute;\r\n  top: 12px;\r\n  left: 12px;\r\n  opacity: 0;\r\n  transition: 0.2s;\r\n  -webkit-transition: 0.2s;\r\n  -moz-transition: 0.2s;\n}\n.middle #fancy-radio label.radio.selected:after {\r\n  width: 15.5px;\r\n  height: 15.5px;\r\n  top: 7px;\r\n  left: 7px;\r\n  opacity: 1;\n}\n.middle #fancy-radio label.radio:hover {\r\n  text-indent: 5px;\n}\n.middle .btn {\r\n  float: left;\r\n  width: 100%;\r\n  height: 50px;\r\n  line-height: 50px;\r\n  margin: 0 0 50px 0;\r\n  background-color: #0c2b6c;\r\n  color: white;\r\n  /* font-family: \"Indie Flower\", cursive; */\r\n  font-size: 22px;\r\n  text-decoration: none;\r\n  text-align: center;\r\n  transition: 0.3s;\r\n  -webkit-transition: 0.3s;\r\n  -moz-transition: 0.3s;\n}\n.middle .btn:hover {\r\n  background-color: #3fa9f5;\r\n  /* background: repeat padding-box border-box 0% 0% / auto auto scroll linear-gradient(229deg, #b76bdd 0%, rgba(29, 44, 243, 0) 100%), #3d9797; */\n}\r\n\r\n/* teks */\n.middle .teks-label {\r\n  font-size: 1.5rem;\r\n  font-family: \"Poppins-Regular\";\n}\n@media screen and (max-width: 600px) {\n.middle .teks-label {\r\n    font-size: 1.25rem;\n}\n}\r\n\r\n/* star */\n.middle .required-star {\r\n  font-size: 24px;\r\n  color: #d12323;\r\n  float: right;\r\n  transform: translateY(-40px);\n}\n.middle .required-starr {\r\n  font-size: 24px;\r\n  color: #d12323;\r\n  /* float: left; */\n}\r\n", ""]);
 
 // exports
 
@@ -22982,6 +23012,36 @@ try {
 
 /***/ }),
 
+/***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Navigation.vue?vue&type=style&index=0&lang=css&":
+/*!********************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/style-loader!./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/Navigation.vue?vue&type=style&index=0&lang=css& ***!
+  \********************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+
+var content = __webpack_require__(/*! !../../../node_modules/css-loader??ref--6-1!../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../node_modules/postcss-loader/src??ref--6-2!../../../node_modules/vue-loader/lib??vue-loader-options!./Navigation.vue?vue&type=style&index=0&lang=css& */ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Navigation.vue?vue&type=style&index=0&lang=css&");
+
+if(typeof content === 'string') content = [[module.i, content, '']];
+
+var transform;
+var insertInto;
+
+
+
+var options = {"hmr":true}
+
+options.transform = transform
+options.insertInto = undefined;
+
+var update = __webpack_require__(/*! ../../../node_modules/style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
+
+if(content.locals) module.exports = content.locals;
+
+if(false) {}
+
+/***/ }),
+
 /***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/Home.vue?vue&type=style&index=0&lang=css&":
 /*!*********************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/style-loader!./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/views/Home.vue?vue&type=style&index=0&lang=css& ***!
@@ -31020,7 +31080,10 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "nav",
-    { staticClass: "navbar navbar-expand-lg navbar-dark bg-primary fixed-top" },
+    {
+      staticClass: "navbar navbar-expand-lg navbar-dark bg-primary fixed-top",
+      attrs: { id: "navbar" }
+    },
     [
       _c(
         "div",
@@ -31191,7 +31254,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticStyle: { "margin-top": "-3rem !important" } }, [
+  return _c("div", { staticStyle: { "margin-top": "-6rem !important" } }, [
     _c("div", { attrs: { id: "header" } }, [
       _c("span", [_c("img", { attrs: { src: "images/global/IG LOGO.svg" } })]),
       _vm._v(" "),
@@ -31201,7 +31264,7 @@ var render = function() {
       _vm._v(" "),
       _c("p", [
         _vm._v(
-          "\n      create IT adalah badan usaha yang melayani pembuatan berbgai produk\n      berbasis IT khusunya dalam bidang multimedia seperti foto dan video dan\n      dibawah naungan langsung oleh Himpunan Mahasiswa Informatika Universitas\n      Jember\n    "
+          "\n      create IT adalah badan usaha yang melayani pembuatan produk berbasis IT\n      khususnya yang dalam bidang multimedia dibawah naungan divisi\n      Kewirausahaan Himpunan Mahasiswa Informatika Universitas Jember\n    "
         )
       ]),
       _vm._v(" "),
@@ -31244,7 +31307,26 @@ var render = function() {
             ]
           ),
           _vm._v(" "),
-          _vm._m(1)
+          _c("div", { staticClass: "content" }, [
+            _vm._m(1),
+            _vm._v(" "),
+            _c("p", [
+              _vm._v(
+                "\n            Form pengajuan dapat diisi di\n            "
+              ),
+              _c(
+                "span",
+                [
+                  _c(
+                    "router-link",
+                    { staticClass: "highligt2", attrs: { to: "/request" } },
+                    [_vm._v("Halaman ini")]
+                  )
+                ],
+                1
+              )
+            ])
+          ])
         ]),
         _vm._v(" "),
         _c("section", { staticClass: "feature right" }, [
@@ -31544,13 +31626,9 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "content" }, [
-      _c("h3", [
-        _c("span", { staticClass: "highligt" }, [_vm._v("1.")]),
-        _vm._v(" Mengisi Form Pengajuan Proyek\n          ")
-      ]),
-      _vm._v(" "),
-      _c("p", [_vm._v("Form pengajuan dapat diisi di halaman ini")])
+    return _c("h3", [
+      _c("span", { staticClass: "highligt" }, [_vm._v("1.")]),
+      _vm._v(" Mengisi Form Pengajuan Proyek\n          ")
     ])
   },
   function() {
@@ -31565,7 +31643,7 @@ var staticRenderFns = [
       _vm._v(" "),
       _c("p", [
         _vm._v(
-          "\n            Client dapat menghubungi admin, lalu mendiskusikan proyek yang\n            telah diisikan di form pada tahap pertama\n          "
+          "\n            Klien dapat menghubungi admin, lalu mendiskusikan proyek yang\n            telah diisikan di form pada tahap pertama\n          "
         )
       ])
     ])
@@ -31599,7 +31677,7 @@ var staticRenderFns = [
       _vm._v(" "),
       _c("p", [
         _vm._v(
-          "\n            Melakukan kesepakatan admin dengan client seperti harga, deadline,\n            dll\n          "
+          "\n            Melakukan kesepakatan admin dengan klien seperti harga, deadline,\n            dll\n          "
         )
       ])
     ])
@@ -31693,9 +31771,17 @@ var staticRenderFns = [
       ]),
       _vm._v(" "),
       _c("li", [
-        _c("a", { staticClass: "icon", attrs: { href: "#" } }, [
-          _c("i", { staticClass: "fab fa-github" })
-        ])
+        _c(
+          "a",
+          {
+            staticClass: "icon",
+            attrs: {
+              href: "https://github.com/createit-hmif",
+              target: "_blank"
+            }
+          },
+          [_c("i", { staticClass: "fab fa-github" })]
+        )
       ]),
       _vm._v(" "),
       _c("li", [
@@ -48481,17 +48567,13 @@ try {
 } catch (e) {}
 
 
- // import Toasted from 'vue-toasted';
 
 
- // vue.use(Toasted)
 
-vue__WEBPACK_IMPORTED_MODULE_1___default.a.use(vue_sweetalert2__WEBPACK_IMPORTED_MODULE_2__["default"]); // Vue.use(VueRouter);
-
+vue__WEBPACK_IMPORTED_MODULE_1___default.a.use(vue_sweetalert2__WEBPACK_IMPORTED_MODULE_2__["default"]);
 vue__WEBPACK_IMPORTED_MODULE_1___default.a.use(aos__WEBPACK_IMPORTED_MODULE_3___default.a);
 
-vue__WEBPACK_IMPORTED_MODULE_1___default.a.component('navigation', __webpack_require__(/*! ./components/Navigation.vue */ "./resources/js/components/Navigation.vue")["default"]); // Vue.productionTips = false
-
+vue__WEBPACK_IMPORTED_MODULE_1___default.a.component('navigation', __webpack_require__(/*! ./components/Navigation.vue */ "./resources/js/components/Navigation.vue")["default"]);
 var app = new vue__WEBPACK_IMPORTED_MODULE_1___default.a({
   created: function created() {
     aos__WEBPACK_IMPORTED_MODULE_3___default.a.init();
@@ -48514,7 +48596,9 @@ var app = new vue__WEBPACK_IMPORTED_MODULE_1___default.a({
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Navigation_vue_vue_type_template_id_d456e682___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Navigation.vue?vue&type=template&id=d456e682& */ "./resources/js/components/Navigation.vue?vue&type=template&id=d456e682&");
 /* harmony import */ var _Navigation_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Navigation.vue?vue&type=script&lang=js& */ "./resources/js/components/Navigation.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* empty/unused harmony star reexport *//* harmony import */ var _Navigation_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Navigation.vue?vue&type=style&index=0&lang=css& */ "./resources/js/components/Navigation.vue?vue&type=style&index=0&lang=css&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
 
 
 
@@ -48522,7 +48606,7 @@ __webpack_require__.r(__webpack_exports__);
 
 /* normalize component */
 
-var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
   _Navigation_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
   _Navigation_vue_vue_type_template_id_d456e682___WEBPACK_IMPORTED_MODULE_0__["render"],
   _Navigation_vue_vue_type_template_id_d456e682___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
@@ -48551,6 +48635,22 @@ component.options.__file = "resources/js/components/Navigation.vue"
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Navigation_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./Navigation.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Navigation.vue?vue&type=script&lang=js&");
 /* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Navigation_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/Navigation.vue?vue&type=style&index=0&lang=css&":
+/*!*********************************************************************************!*\
+  !*** ./resources/js/components/Navigation.vue?vue&type=style&index=0&lang=css& ***!
+  \*********************************************************************************/
+/*! no static exports found */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Navigation_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/style-loader!../../../node_modules/css-loader??ref--6-1!../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../node_modules/postcss-loader/src??ref--6-2!../../../node_modules/vue-loader/lib??vue-loader-options!./Navigation.vue?vue&type=style&index=0&lang=css& */ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Navigation.vue?vue&type=style&index=0&lang=css&");
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Navigation_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Navigation_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Navigation_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Navigation_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+
 
 /***/ }),
 

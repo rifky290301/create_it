@@ -4,43 +4,9 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\FeedbackController;
-use App\Http\Controllers\NoteController;
 use App\Http\Controllers\ProjectController;
-use App\Http\Controllers\SubjectController;
 use App\Http\Controllers\JenisProyekController;
 use App\Models\Feedback;
-
-// Route::middleware('auth:api')->get('/user', function (Request $request) {
-//     return $request->user();
-// });
-
-// Route::namespace('Notes')->group(function () {
-
-// Route::prefix('notes')->group(function () {
-//   Route::post('create-new-note', [NoteController::class, 'store']);
-//   // allNotes
-//   Route::get('', [NoteController::class, 'index']);
-//   // show
-//   Route::get('{note:slug}', [NoteController::class, 'show'])->name('notes.show');
-//   // edit
-//   Route::patch('{note:slug}/edit', [NoteController::class, 'update']);
-//   // delete
-//   Route::delete('{note:slug}/delete', [NoteController::class, 'destroy']);
-// });
-
-// Route::post('login', function () {
-//   $credentials = request()->only('email', 'password');
-
-//   if (auth()->once($credentials)) {
-//     return auth()->user();
-//   }
-
-//   return 'fail';
-// });
-
-Route::prefix('subject')->group(function () {
-  Route::get('', [SubjectController::class, 'index']);
-});
 
 Route::get('jenis_proyek', [JenisProyekController::class, 'index']);
 

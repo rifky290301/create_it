@@ -17,6 +17,9 @@ import VueSweetalert2 from 'vue-sweetalert2';
 import AOS from "aos";
 import "aos/dist/aos.css";
 
+const compression = require('compression')
+Vue.use(compression)
+
 Vue.use(VueSweetalert2);
 Vue.use(AOS);
 

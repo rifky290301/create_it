@@ -5,11 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="csrf-token" content="{{csrf_token()}}">
-    @if (request()->is('/'))
     <title>Create IT</title>
-    @else
-    <title>Create IT | Request</title>
-    @endif
     <link rel="icon" href="images/global/IG LOGO.svg">
     <link rel="stylesheet" href="/css/app.css">
     <link rel="stylesheet" href="/css/instanseFont.css">
